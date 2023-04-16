@@ -22,7 +22,7 @@ export function VideoSubtitle() {
 
   const url = `${embed_source}?showinfo=0&start=${Math.round(Number(time))}`
   return (
-    <div className="flex flex-row space-x-6 mt-10 m-auto max-w-7xl">
+    <div className="flex flex-row space-x-6 mt-10 m-auto max-w-7xl px-2">
       <div className="space-y-6">
         <div className="text-2xl font-bold dark:text-white">
           Transcript at{' '}

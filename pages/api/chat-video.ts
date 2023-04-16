@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       chat_history: history || [],
     })
 
-    console.log('response', response)
+    console.log('===question & response===', { question, response })
     res.json({ answer: response.text, sources })
   } catch (error) {
     console.log('error', error)

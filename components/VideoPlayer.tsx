@@ -1,11 +1,11 @@
 import { useAppStore } from '@/store'
 import { useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/router'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactPlayer, { Config } from 'react-player'
 import BaseReactPlayer from 'react-player/types/base'
 
 export function VideoPlayer() {
+  const [playing, setPlaying] = useState(true)
   const { videoUrl } = useAppStore()
   const searchParams = useSearchParams()
   const time = searchParams.get('t')
@@ -22,13 +22,22 @@ export function VideoPlayer() {
 
     const reactPlayer = ref.current
     if (time) {
+      setPlaying(true)
       reactPlayer.seekTo(Number(time))
     }
   }, [time])
 
   return (
     <div className="aspect-video w-full">
-      <ReactPlayer ref={ref} width="100%" height="100%" url={videoUrl} controls config={config} />
+      <ReactPlayer
+        ref={ref}
+        width="100%"
+        height="100%"
+        url={videoUrl}
+        controls
+        config={config}
+        playing={playing}
+      />
     </div>
   )
 }

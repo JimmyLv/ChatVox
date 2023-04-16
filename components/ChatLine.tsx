@@ -3,13 +3,14 @@ import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import clsx from 'clsx'
 import { Document } from 'langchain/document'
 import Balancer from 'react-wrap-balancer'
+import uniqBy from 'lodash.uniqby'
 
 const BalancerWrapper = (props: any) => <Balancer {...props} />
 
 export type Message = {
   who: 'bot' | 'user' | undefined
   message?: string
-  sources?: any
+  sources?: Document<SubtitleMetadata>[]
 }
 
 // loading placeholder animation for the chat line
@@ -64,19 +65,20 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
                 {formatteMessage}
               </p>
               <div className="grid grid-cols-3 mt-2">
-                {sources?.map((source_doc: Document<SubtitleMetadata>, index: number) => {
-                  const { pageContent: page_content, metadata } = source_doc
-                  const { source, start } = metadata
-                  return (
-                    <Source
-                      key={index}
-                      index={index + 1}
-                      pageContent={page_content}
-                      source={source}
-                      start={start}
-                    />
-                  )
-                })}
+                {sources &&
+                  uniqBy(sources, (i) => i.metadata.start).map((source_doc, index) => {
+                    const { pageContent: page_content, metadata } = source_doc
+                    const { source, start } = metadata
+                    return (
+                      <Source
+                        key={index}
+                        index={index}
+                        pageContent={page_content}
+                        source={source}
+                        start={start}
+                      />
+                    )
+                  })}
               </div>
             </div>
           </div>

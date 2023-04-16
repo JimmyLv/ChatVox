@@ -8,21 +8,19 @@ export default function Source({
   start,
   title,
 }: {
-  index?: number
+  index: number
   pageContent?: string
   source?: string
   start?: number
   title?: string
 }) {
   return (
-    <div key={index}>
-      <Link
-        href={`?t=${start}&i=${index}`}
-        scroll={false}
-        className="text-left pt-2 text-blue-600 hover:underline cursor-pointer"
-      >
-        🧠 Source {index}: {formatTime(start)}
-      </Link>
-    </div>
+    <Link
+      href={`?t=${start}&i=${index}`}
+      scroll={false}
+      className="text-left pt-2 text-blue-600 hover:underline cursor-pointer"
+    >
+      🧠 Source {index + 1}: {formatTime(start)}
+    </Link>
   )
 }
