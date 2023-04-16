@@ -84,7 +84,7 @@ export default function Chat({ className }: { className?: string }) {
   }
 
   return (
-    <div className={clsx('w-full overflow-auto justify-between p-2', className)}>
+    <div className={clsx('w-full overflow-auto justify-between px-2', className)}>
       {messages.map(({ message, who, sources, isPlausible }, index) => (
         <ChatLine
           key={index}
@@ -102,15 +102,15 @@ export default function Chat({ className }: { className?: string }) {
           Type a message to ask related question
         </span>
       ) : (
-        <span className="justify-center content-center	mx-auto flex flex-grow clear-both">
+        <span className="justify-end content-center mx-auto flex flex-grow clear-both">
           <Button disabled={loading} onClick={regenerateAnswer}>
             <div className="flex flex-row items-center">
-              <Icons.share className="mr-2 h-5 w-5" /> Regenerate response
+              <Icons.package className="mr-2 h-5 w-5" /> Regenerate response
             </div>
           </Button>
           <Button disabled={loading} onClick={resetChatConversation} className="ml-2">
             <div className="flex flex-row items-center">
-              <Icons.check className="mr-2 h-5 w-5" /> New chat
+              <Icons.close className="mr-2 h-5 w-5" /> New chat
             </div>
           </Button>
         </span>
@@ -119,7 +119,7 @@ export default function Chat({ className }: { className?: string }) {
       <AskQuestion input={input} setInput={setInput} sendMessage={sendMessage} loading={loading} />
 
       {error && (
-        <div className="rounded-md bg-red-50 p-4">
+        <div className="rounded-md bg-red-50 p-4 mt-4">
           <div className="flex">
             <div className="ml-3">
               <h3 className="text-sm font-medium text-red-800">Error</h3>

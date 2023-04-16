@@ -8,10 +8,10 @@ export const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 // export const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
 if (!supabaseUrl) {
-  throw new ApplicationError('Missing environment variable SUPABASE_URL')
+  throw new ApplicationError('Missing environment variable NEXT_PUBLIC_SUPABASE_URL')
 }
 if (!supabaseKey) {
-  throw new ApplicationError('Missing environment variable SUPABASE_KEY')
+  throw new ApplicationError('Missing environment variable NEXT_PUBLIC_SUPABASE_ANON_KEY')
 }
 /*
 if (!supabaseServiceKey) {

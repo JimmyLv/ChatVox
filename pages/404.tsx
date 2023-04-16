@@ -1,7 +1,7 @@
 import Link from 'next/link'
 function NotFound() {
   return (
-    <section className="mx-auto w-full max-w-5xl bg-white dark:bg-gray-900">
+    <section className="mx-auto w-full max-w-7xl bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-sm text-center">
           <h1 className="text-primary-600 dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight lg:text-9xl">

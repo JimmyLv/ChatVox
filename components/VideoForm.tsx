@@ -1,4 +1,5 @@
 import { LoadingText } from '@/components/buttons/LoadingText'
+import { Icons } from '@/components/icons'
 import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/hooks/useTranslation'
 import { cn } from '@/lib/utils'
@@ -49,10 +50,17 @@ export function VideoForm() {
         <Button
           type="submit"
           className={cn(
-            'ml-2 w-fit whitespace-nowrap rounded-lg py-2.5 text-sm font-medium text-white'
+            'ml-2 w-30 whitespace-nowrap rounded-lg py-2.5 text-sm font-medium text-white'
           )}
         >
-          {adding ? <LoadingText text="Adding" /> : 'Add'}
+          {adding ? (
+            <LoadingText text="Adding" />
+          ) : (
+            <div className="flex">
+              Add
+              <Icons.add className="ml-2 h-5 w-5" />
+            </div>
+          )}
         </Button>
       </div>
     </form>

@@ -1,6 +1,6 @@
 import { supabaseClient } from '@/lib/supabase/client'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { OpenAIEmbeddings } from 'langchain/embeddings'
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { SupabaseVectorStore } from 'langchain/vectorstores'
 import { makeChain } from '@/lib/langchain/makechain'
 

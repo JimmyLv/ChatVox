@@ -26,7 +26,7 @@ export const AskQuestion = ({ input, setInput, sendMessage, loading }: any) => (
       {!loading && (
         <Button
           type="submit"
-          className="ml-2 flex-none"
+          className="ml-2 flex-none w-30"
           onClick={(e) => {
             sendMessage(input)
             setInput('')
