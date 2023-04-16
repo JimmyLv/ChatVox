@@ -11,13 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Next.js OpenAI Template</title>
-        <meta
-          name="description"
-          content="Next.js Template for building OpenAI applications with Supabase."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>ChatVox · Chat With Any Video</title>
       </Head>
       <main className={styles.main}>
         <div className={styles.center}>
@@ -35,7 +29,7 @@ export default function Home() {
           <div className="flex items-center justify-center space-x-4">
             <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
               <Link
-                href="https://github.com/JimmyLv/ChatVox"
+                href="https://github.com/supabase/supabase"
                 className="flex items-center justify-center"
               >
                 <Image src={'/github.svg'} width="20" height="20" alt="Github logo" />
@@ -43,7 +37,7 @@ export default function Home() {
             </div>
             <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
               <Link
-                href="https://twitter.com/Jimmy_JingLv/status/1647483720608415744"
+                href="https://twitter.com/supabase"
                 className="flex items-center justify-center"
               >
                 <Image src={'/twitter.svg'} width="20" height="20" alt="Twitter logo" />
