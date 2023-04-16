@@ -4,7 +4,7 @@
 
 ![ChatVox Cover Image](/public/og-image.png)
 
-This starter takes all the `.mdx` files in the `pages` directory or YouTube/Podcast link you enter on the page, then processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
+This project takes the YouTube/Podcast link you enter or local Video/Audio file you upload on the page, then processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
 
 ## Deploy
 
