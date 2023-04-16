@@ -1,12 +1,10 @@
-import TypingSlogan from '@/components/TypingSlogan'
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import { SearchDialog } from '@/components/SearchDialog'
+import TypingSlogan from '@/components/TypingSlogan'
+import { VideoForm } from '@/components/VideoForm'
+import styles from '@/styles/Home.module.css'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -16,6 +14,9 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <TypingSlogan />
+        <div className="sm:mt-30 mx-auto mt-8 w-full max-w-5xl px-4 lg:px-0">
+          <VideoForm />
+        </div>
         <div className={styles.center}>
           <SearchDialog />
         </div>

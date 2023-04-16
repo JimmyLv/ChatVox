@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@hookform/resolvers': ^3.1.0
   '@radix-ui/react-dialog': ^1.0.3
   '@radix-ui/react-label': ^2.0.1
   '@radix-ui/react-popover': ^1.0.5
@@ -62,6 +63,7 @@ specifiers:
   zustand: ^4.3.7
 
 dependencies:
+  '@hookform/resolvers': 3.1.0_react-hook-form@7.43.9
   '@radix-ui/react-dialog': 1.0.3_4qaawyptjkcgzqorucvhm3koke
   '@radix-ui/react-label': 2.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-popover': 1.0.5_4qaawyptjkcgzqorucvhm3koke
@@ -442,6 +444,14 @@ packages:
   /@fortaine/fetch-event-source/3.0.6:
     resolution: {integrity: sha512-621GAuLMvKtyZQ3IA6nlDWhV1V/7PGOTNIGLUifxt0KzM+dZIweJ6F3XvQF3QnqeNfS1N7WQ0Kil1Di/lhChEw==}
     engines: {node: '>=16.15'}
+    dev: false
+
+  /@hookform/resolvers/3.1.0_react-hook-form@7.43.9:
+    resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.43.9_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -4034,6 +4044,15 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-hook-form/7.43.9_react@18.2.0:
+    resolution: {integrity: sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-is/16.13.1:

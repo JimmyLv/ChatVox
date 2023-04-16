@@ -16,7 +16,7 @@ export default function Header() {
         <div className="flex items-center space-x-2 md:space-x-3">
           <a href="https://jimmylv.cn" target="_blank" rel="noopener noreferrer">
             <img
-              src="/icon_32x32@2x.png"
+              src="/pure_icon_32x32@2x.png"
               alt="logo"
               className="animate-bounce hover:animate-pulse hover:duration-300"
               width={38}
