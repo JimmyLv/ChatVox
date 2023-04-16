@@ -26,20 +26,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'Not support' })
   }
 
-  const sub: YoutubeSubtitle[] = await getSubtitles({
+  const subtitles: YoutubeSubtitle[] = await getSubtitles({
     videoID: id,
   })
-  console.log('========sub========', sub)
-  // {
-  //     start: '229.28',
-  //     dur: '3.44',
-  //     text: 'i decided to take a calligraphy class to'
-  //   },
   const embeddings = new OpenAIEmbeddings()
   const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
 
-  if (sub) {
-    const rawDocs: Document<SubtitleMetadata>[] = sub.map(({ text, dur, start }, index) => ({
+  if (subtitles) {
+    const rawDocs: Document<SubtitleMetadata>[] = subtitles.map(({ text, dur, start }, index) => ({
       pageContent: text,
       metadata: {
         index,
