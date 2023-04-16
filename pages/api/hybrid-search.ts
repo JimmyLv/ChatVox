@@ -1,8 +1,9 @@
+import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
+import { SRTLoader } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
 // import { loadQAStuffChain, loadQAMapReduceChain, loadSummarizationChain } from 'langchain/chains'
 import { loadQAStuffChain } from 'langchain/chains'
 import { Document } from 'langchain/document'
-import { SRTLoader } from 'langchain/document_loaders/fs/srt'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { OpenAI } from 'langchain/llms/openai'
 import { SupabaseHybridSearch } from 'langchain/retrievers/supabase'
@@ -10,25 +11,14 @@ import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-async function splitDocsIntoChunks(docs: Document[]): Promise<Document[]> {
-  const textSplitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 2000,
-    chunkOverlap: 200,
-  })
-  return await textSplitter.splitDocuments(docs)
-}
-
 // https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/subtitles
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const embeddings = new OpenAIEmbeddings()
   const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
 
-  const loader = new SRTLoader(
+  const docs = await extractDataFromSrt(
     "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
   )
-
-  const rawDocs = await loader.load()
-  const docs = await splitDocsIntoChunks(rawDocs)
   await vectorStore.addDocuments(docs)
 
   const retriever = new SupabaseHybridSearch(embeddings, {
