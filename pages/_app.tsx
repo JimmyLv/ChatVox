@@ -1,14 +1,16 @@
-import '@/styles/globals.css'
 import Header from '@/components/Header'
-import SignInModal from '@/components/SignInModal'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Toaster } from '@/components/ui/toaster'
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
+import '@/styles/globals.css'
 import { createBrowserSupabaseClient, Session } from '@supabase/auth-helpers-nextjs'
 import { SessionContextProvider } from '@supabase/auth-helpers-react'
+import type { AppProps } from 'next/app'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
 
 import { useState } from 'react'
+
+const SignInModal = dynamic(() => import(`../components/SignInModal`), { ssr: false })
 
 export default function App({
   Component,
