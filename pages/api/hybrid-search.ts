@@ -1,13 +1,15 @@
-import { Document } from 'langchain/document'
 import { supabaseClient } from '@/lib/supabase/client'
+// import { loadQAStuffChain, loadQAMapReduceChain, loadSummarizationChain } from 'langchain/chains'
+import { loadQAStuffChain } from 'langchain/chains'
+import { Document } from 'langchain/document'
 import { SRTLoader } from 'langchain/document_loaders/fs/srt'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
+import { OpenAI } from 'langchain/llms/openai'
 import { SupabaseHybridSearch } from 'langchain/retrievers/supabase'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
-const { OpenAI } = require('langchain/llms/openai')
-const { loadQAStuffChain } = require('langchain/chains')
+
 async function splitDocsIntoChunks(docs: Document[]): Promise<Document[]> {
   const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize: 2000,
