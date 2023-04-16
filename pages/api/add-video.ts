@@ -26,38 +26,46 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'Not support' })
   }
 
-  const subtitles: YoutubeSubtitle[] = await getSubtitles({
-    videoID: id,
-  })
-  const embeddings = new OpenAIEmbeddings()
-  const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
+  try {
+    const subtitles: YoutubeSubtitle[] = await getSubtitles({
+      videoID: id,
+    })
+    const embeddings = new OpenAIEmbeddings()
+    const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
 
-  if (subtitles) {
-    const rawDocs: Document<SubtitleMetadata>[] = subtitles.map(({ text, dur, start }, index) => ({
-      pageContent: text,
-      metadata: {
-        index,
-        start: Number(start),
-        end: Number(start) + Number(dur),
-        source: url,
-      },
-    }))
-    const docs = reduceDocuments(rawDocs)
-    await vectorStore.addDocuments(docs)
+    if (subtitles) {
+      const rawDocs: Document<SubtitleMetadata>[] = subtitles.map(
+        ({ text, dur, start }, index) => ({
+          pageContent: text,
+          metadata: {
+            index,
+            start: Number(start),
+            end: Number(start) + Number(dur),
+            source: url,
+          },
+        })
+      )
+      const docs = reduceDocuments(rawDocs)
+      await vectorStore.addDocuments(docs)
+
+      return res.json({
+        success: true,
+      })
+    }
+
+    // TODO: add doc for different video, use whisper to generate subtitle
+    const docs = await extractDataFromSrt(
+      "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
+    )
+    console.log('========docs========', docs)
+    // await vectorStore.addDocuments(docs)
 
     return res.json({
       success: true,
     })
+  } catch (error: any) {
+    console.error(error)
+    // https://www.youtube.com/watch?v=0e9S_Gm7Slc
+    res.status(500).json({ error, errorMessage: error.message })
   }
-
-  // TODO: add doc for different video, use whisper to generate subtitle
-  const docs = await extractDataFromSrt(
-    "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
-  )
-  // console.log('========docs========', docs)
-  await vectorStore.addDocuments(docs)
-
-  return res.json({
-    success: true,
-  })
 }
