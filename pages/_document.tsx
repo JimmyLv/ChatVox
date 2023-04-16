@@ -6,14 +6,13 @@ export default function Document() {
   let description = t(
     `Chat With Any Video, challenge myself to complete in @Supabase AI Hackathon.`
   )
-  let ogimage = `${BASE_DOMAIN}/og-image.png`
+  let ogimage = `og-image.png`
   let sitename = CURRENT_DOMAIN
   let title = t('ChatVox · Chat With Any Video')
 
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="/icon_32x32@2x.png" />
         <meta name="description" content={description} />
         <meta property="og:site_name" content={sitename} />
         <meta property="og:description" content={description} />
