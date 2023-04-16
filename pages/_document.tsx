@@ -1,8 +1,9 @@
 import { BASE_DOMAIN, CURRENT_DOMAIN } from '@/constants/site'
+import { useTranslation } from '@/hooks/useTranslation'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
-  const t = (key: string) => key
+  const { t } = useTranslation()
   let description = t(
     `Chat With Any Video, challenge myself to complete in @Supabase AI Hackathon.`
   )

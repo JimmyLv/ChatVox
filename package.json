@@ -53,6 +53,7 @@
     "openai": "^3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-type-animation": "^2.1.2",
     "srt-parser-2": "^1.2.2",
     "sse.js": "^0.6.1",
     "tailwind-merge": "^1.10.0",

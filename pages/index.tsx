@@ -1,3 +1,4 @@
+import TypingSlogan from '@/components/TypingSlogan'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -14,6 +15,7 @@ export default function Home() {
         <title>ChatVox · Chat With Any Video</title>
       </Head>
       <main className={styles.main}>
+        <TypingSlogan />
         <div className={styles.center}>
           <SearchDialog />
         </div>
