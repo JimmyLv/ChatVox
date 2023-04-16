@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const docs = await extractDataFromSrt(
     "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
   )
-  console.log('========docs========', docs)
+  // console.log('========docs========', docs)
   await vectorStore.addDocuments(docs)
 
   return res.json({

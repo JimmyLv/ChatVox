@@ -32,7 +32,9 @@ export const makeChain = (
   onTokenStream?: (token: string, verbose?: boolean) => void
 ) => {
   const questionGenerator = new LLMChain({
-    llm: new ChatOpenAI({ temperature: 0 }),
+    llm: new ChatOpenAI({
+      temperature: 0.2,
+    }),
     prompt: CONDENSE_PROMPT,
   })
 
@@ -41,7 +43,7 @@ export const makeChain = (
 
   const docChain = loadQAStuffChain(
     new ChatOpenAI({
-      temperature: 0,
+      temperature: 0.2,
       streaming: Boolean(onTokenStream),
       callbackManager,
     }),
