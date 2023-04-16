@@ -21,6 +21,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!url) {
     return res.status(400).json({ message: 'No video url in the request' })
   }
+
+  // if (existingContent)
+
   const { id, service } = getVideoId(url)
   if (service !== 'youtube') {
     return res.status(400).json({ message: 'Not support' })
@@ -50,6 +53,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       return res.json({
         success: true,
+        subtitleDocs: docs,
       })
     }
 
@@ -62,6 +66,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.json({
       success: true,
+      subtitleDocs: docs,
     })
   } catch (error: any) {
     console.error(error)

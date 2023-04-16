@@ -1,8 +1,11 @@
-import { SubmitButton } from '@/components/buttons/SubmitButton'
+import { LoadingText } from '@/components/buttons/LoadingText'
+import { Button } from '@/components/ui/button'
 import { useTranslation } from '@/hooks/useTranslation'
+import { cn } from '@/lib/utils'
 import { videoConfigSchema, VideoConfigSchema } from '@/schemas/video'
 import { useAppStore } from '@/store'
 import { zodResolver } from '@hookform/resolvers/zod'
+import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 export function VideoForm() {
@@ -35,18 +38,22 @@ export function VideoForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)} className='grid place-items-center'>
-      <div className='flex w-full items-center justify-between'>
+    <form onSubmit={handleSubmit(onFormSubmit)} className="grid place-items-center p-2">
+      <div className="flex w-full items-center justify-between">
         <input
-          type='text'
+          type="text"
           {...register('videoUrl')}
-          className='mx-auto my-8 w-full appearance-none rounded-md border bg-transparent py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400'
+          className="mx-auto my-8 w-full appearance-none rounded-md border bg-transparent py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400"
           placeholder={t('Please input youtube.com video link，and press Enter')}
         />
-      </div>
-
-      <div className='flex w-full items-end justify-center'>
-        <SubmitButton loading={adding} />
+        <Button
+          type="submit"
+          className={cn(
+            'ml-2 w-fit whitespace-nowrap rounded-lg py-2.5 text-sm font-medium text-white'
+          )}
+        >
+          {adding ? <LoadingText text="Adding" /> : 'Add'}
+        </Button>
       </div>
     </form>
   )

@@ -47,7 +47,9 @@ specifiers:
   prop-types: ^15.5.4
   react: 18.2.0
   react-dom: 18.2.0
+  react-hook-form: ^7.43.5
   react-type-animation: ^2.1.2
+  react-wrap-balancer: ^0.4.0
   srt-parser-2: ^1.2.2
   sse.js: ^0.6.1
   subtitle: ^4.2.1
@@ -102,7 +104,9 @@ dependencies:
   prop-types: 15.8.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-hook-form: 7.43.9_react@18.2.0
   react-type-animation: 2.1.2_v2m5e27vhdewzwhryxwfaorcca
+  react-wrap-balancer: 0.4.0_react@18.2.0
   srt-parser-2: 1.2.2
   sse.js: 0.6.1
   subtitle: 4.2.1
@@ -4140,6 +4144,14 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /react-wrap-balancer/0.4.0_react@18.2.0:
+    resolution: {integrity: sha512-MUsROihHd7bFHCo9kCOifKDYBEZPgKTyGvfa8RcwRQKtT2cL7Um9Cc8A7GvuT8t3np7LAGsEkzdEyJdKrr5lVQ==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:
