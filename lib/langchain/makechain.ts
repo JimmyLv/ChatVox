@@ -1,6 +1,6 @@
 import { LLMChain, PromptTemplate } from 'langchain'
 import { CallbackManager, ConsoleCallbackHandler } from 'langchain/callbacks'
-import { ChatVectorDBQAChain, loadQAChain } from 'langchain/chains'
+import { ChatVectorDBQAChain, loadQAStuffChain } from 'langchain/chains'
 import { ChatOpenAI } from 'langchain/chat_models'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 
@@ -39,7 +39,7 @@ export const makeChain = (
   const callbackManager = new CallbackManager()
   callbackManager.addHandler(new ConsoleCallbackHandler())
 
-  const docChain = loadQAChain(
+  const docChain = loadQAStuffChain(
     new ChatOpenAI({
       temperature: 0,
       streaming: Boolean(onTokenStream),

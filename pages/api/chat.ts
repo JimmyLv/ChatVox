@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
 
     console.log('response', response)
-    res.json(response)
+    res.json({ response })
   } catch (error) {
     console.log('error', error)
     res.status(500).json({ error })

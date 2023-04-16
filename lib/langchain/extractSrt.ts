@@ -1,3 +1,4 @@
+import { reduceDocuments } from '@/lib/langchain/reduceDocuments'
 import { SRTLoader } from '@/lib/langchain/SRTLoader'
 import { Document } from 'langchain/document'
 import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
@@ -7,8 +8,7 @@ export async function extractDataFromSrt(srtPath: string): Promise<Document[]> {
     const loader = new SRTLoader(srtPath)
 
     const rawDocs = await loader.load()
-    // console.log('========rawDocs========', rawDocs)
-    return rawDocs
+    return reduceDocuments(rawDocs)
   } catch (error) {
     console.error(`Error while extracting data from ${srtPath}: ${error}`)
     return []

@@ -1,13 +1,9 @@
 import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
-import { SRTLoader } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
-// import { loadQAStuffChain, loadQAMapReduceChain, loadSummarizationChain } from 'langchain/chains'
-import { loadQAChain, loadQAStuffChain } from 'langchain/chains'
-import { Document } from 'langchain/document'
+import { loadQAStuffChain } from 'langchain/chains'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
-import { OpenAI } from 'langchain/llms/openai'
+import { OpenAIChat } from 'langchain/llms/openai'
 import { SupabaseHybridSearch } from 'langchain/retrievers/supabase'
-import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
 
@@ -46,7 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   // const searchResults = await docSearch.similaritySearch(query, 5);
 
-  const llm = new OpenAI({
+  const llm = new OpenAIChat({
     // temperature: 0.7,
     maxTokens: 400,
   })
