@@ -9,7 +9,10 @@
     "lint": "next lint",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "embeddings": "tsx lib/generate-embeddings.ts",
-    "types": "source .env && npx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID --schema public > schemas/supabase.ts"
+    "db:link": "source .env && npx supabase link --project-ref $SUPABASE_PROJECT_ID",
+    "db:migrate": "npx supabase migration new",
+    "db:push": "npx supabase db push",
+    "db:types": "source .env && npx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID --schema public > schemas/supabase.ts"
   },
   "prettier": {
     "trailingComma": "es5",
