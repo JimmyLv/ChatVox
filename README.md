@@ -1,4 +1,6 @@
-# Next.js OpenAI Doc Search Starter
+# ChatVox - "Chat With Any Video"
+
+> based on Next.js OpenAI Doc Search Starter
 
 This starter takes all the `.mdx` files in the `pages` directory and processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
 
