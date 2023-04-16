@@ -18,6 +18,7 @@ specifiers:
   dotenv: ^16.0.3
   eslint: 8.36.0
   eslint-config-next: 13.2.4
+  get-video-id: ^3.6.5
   github-slugger: ^2.0.0
   gpt3-tokenizer: ^1.1.5
   langchain: ^0.0.56
@@ -44,6 +45,7 @@ specifiers:
   typescript: 5.0.2
   unist-builder: ^3.0.1
   unist-util-filter: ^4.0.1
+  youtube-captions-scraper: ^2.0.0
 
 dependencies:
   '@radix-ui/react-dialog': 1.0.3_4qaawyptjkcgzqorucvhm3koke
@@ -58,6 +60,7 @@ dependencies:
   common-tags: 1.8.2
   eslint: 8.36.0
   eslint-config-next: 13.2.4_j4766f7ecgqbon3u7zlxn5zszu
+  get-video-id: 3.6.5
   github-slugger: 2.0.0
   gpt3-tokenizer: 1.1.5
   langchain: 0.0.56_vg2gb77cp77imobbzfm4x5gymm
@@ -80,6 +83,7 @@ dependencies:
   typescript: 5.0.2
   unist-builder: 3.0.1
   unist-util-filter: 4.0.1
+  youtube-captions-scraper: 2.0.0
 
 devDependencies:
   '@types/common-tags': 1.8.1
@@ -1239,6 +1243,16 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
+  /axios/0.17.1:
+    resolution: {integrity: sha512-mZzWRyJeJ0rtK7e1/6iYBUzmeXjzei+1h1IvbedyU0sB52++tU5AU6r6TLXpwNVR0ebXIpvTVW+9CpWNyc1n8w==}
+    deprecated: Critical security vulnerability fixed in v0.21.1. For more information, see https://github.com/axios/axios/pull/3410
+    dependencies:
+      follow-redirects: 1.15.2
+      is-buffer: 1.1.6
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /axios/0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
@@ -2214,6 +2228,11 @@ packages:
   /get-tsconfig/4.5.0:
     resolution: {integrity: sha512-MjhiaIWCJ1sAU4pIQ5i5OfOuHHxVo1oYeNsWTON7jxYkod8pHocXeh+SSbmu5OZZZK73B6cbJ2XADzXehLyovQ==}
 
+  /get-video-id/3.6.5:
+    resolution: {integrity: sha512-9RPHSQANIeGW5rU3CjWdm1zi+wUHbBWX+m4m+dqQAavrZ9p1P1J7AbxGvVEEHRyGfGrmMf5PqiRWYMyfqM+QYA==}
+    engines: {node: '>=10'}
+    dev: false
+
   /github-slugger/2.0.0:
     resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
     dev: false
@@ -2356,6 +2375,11 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /he/1.2.0:
+    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
+    hasBin: true
+    dev: false
+
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
@@ -2449,6 +2473,10 @@ packages:
     dependencies:
       call-bind: 1.0.2
       has-tostringtag: 1.0.0
+    dev: false
+
+  /is-buffer/1.1.6:
+    resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
     dev: false
 
   /is-buffer/2.0.5:
@@ -2786,6 +2814,10 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /longest-streak/3.1.0:
@@ -3991,6 +4023,10 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /striptags/3.2.0:
+    resolution: {integrity: sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw==}
+    dev: false
+
   /styled-jsx/5.1.1_react@18.2.0:
     resolution: {integrity: sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==}
     engines: {node: '>= 12.0.0'}
@@ -4435,6 +4471,17 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: false
+
+  /youtube-captions-scraper/2.0.0:
+    resolution: {integrity: sha512-aM4M00QQ8h1XTa+gr23HAjJPurz4mWqvQgeijrXomD7tl5KgLRde/yZcgukEV0ZW/UAF8fkCaR6Fn3yTqQWTCA==}
+    dependencies:
+      axios: 0.17.1
+      he: 1.2.0
+      lodash: 4.17.21
+      striptags: 3.2.0
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   /zod/3.21.4:

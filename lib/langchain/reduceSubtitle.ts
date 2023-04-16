@@ -1,17 +1,5 @@
-export interface SRTSubtitle {
-  startTime: string
-  startSeconds: number
-  endTime: string
-  endSeconds: number
-  text: string
-}
+import { CommonSubtitle, SRTSubtitle } from '@/lib/langchain/types'
 
-export type CommonSubtitle = {
-  index: number
-  text: string
-  start: number
-  end: number
-}
 export function reduceSubtitle(subtitles: SRTSubtitle[] = []): CommonSubtitle[] {
   const MINIMUM_COUNT_ONE_GROUP = 10
 

@@ -14,13 +14,14 @@ export function reduceDocuments(subtitleDocs: Document<SubtitleMetadata>[] = [])
     const firstSubtitle = subtitlesWindow[0]
     const lastSubtitle = subtitlesWindow[subtitlesWindow.length - 1]
     const metadata = {
-      start: firstSubtitle.metadata.startSeconds,
-      end: lastSubtitle.metadata.endSeconds,
-      startIdx: i,
-      endIdx: i + contextWindowSize,
+      index: i,
+      start: firstSubtitle.metadata.start,
+      end: lastSubtitle.metadata.end,
+      // startIdx: i,
+      // endIdx: i + contextWindowSize,
       source: firstSubtitle.metadata.source,
     }
-    const doc = new Document({ pageContent, metadata })
+    const doc = new Document<SubtitleMetadata>({ pageContent, metadata })
     documents.push(doc)
   }
 
