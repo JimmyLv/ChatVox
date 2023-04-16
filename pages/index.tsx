@@ -23,7 +23,17 @@ export default function Home() {
         <div className="py-8 w-full flex items-center justify-center space-x-6">
           <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
             <Link href="https://supabase.com" className="flex items-center justify-center">
-              <p className="text-base mr-2">Built by Supabase</p>
+              <p className="text-base mr-2">
+                Built with ❤️ by
+                <a
+                  href="https://twitter.com/Jimmy_JingLv"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold underline-offset-2 transition hover:text-pink-400 hover:underline"
+                >
+                  &nbsp;JimmyLv
+                </a>
+              </p>
               <Image src={'/supabase.svg'} width="20" height="20" alt="Supabase logo" />
             </Link>
           </div>
@@ -31,7 +41,7 @@ export default function Home() {
           <div className="flex items-center justify-center space-x-4">
             <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
               <Link
-                href="https://github.com/supabase/supabase"
+                href="https://github.com/JimmyLv/ChatVox"
                 className="flex items-center justify-center"
               >
                 <Image src={'/github.svg'} width="20" height="20" alt="Github logo" />
@@ -39,7 +49,7 @@ export default function Home() {
             </div>
             <div className="opacity-75 transition hover:opacity-100 cursor-pointer">
               <Link
-                href="https://twitter.com/supabase"
+                href="https://twitter.com/Jimmy_JingLv/status/1647483720608415744?s=20"
                 className="flex items-center justify-center"
               >
                 <Image src={'/twitter.svg'} width="20" height="20" alt="Twitter logo" />
