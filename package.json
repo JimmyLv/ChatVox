@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
-    "embeddings": "tsx lib/generate-embeddings.ts"
+    "embeddings": "tsx lib/generate-embeddings.ts",
+    "types": "source .env && npx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID --schema public > schemas/supabase.ts"
   },
   "prettier": {
     "trailingComma": "es5",
