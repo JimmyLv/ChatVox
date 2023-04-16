@@ -1,6 +1,5 @@
 import { ApplicationError, UserError } from '@/lib/errors'
-import { supabaseClient, supabaseServiceKey, supabaseUrl } from '@/lib/supabase/client'
-import { createClient } from '@supabase/supabase-js'
+import { supabaseClient } from '@/lib/supabase/client'
 import { codeBlock, oneLine } from 'common-tags'
 import GPT3Tokenizer from 'gpt3-tokenizer'
 import type { NextRequest } from 'next/server'

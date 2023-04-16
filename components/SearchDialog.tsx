@@ -172,7 +172,7 @@ export function SearchDialog() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="text-base flex gap-2 items-center px-4 py-2 z-50 relative
+        className="text-base flex gap-2 items-center px-4 py-2 z-10 relative
         text-slate-500 dark:text-slate-400  hover:text-slate-700 dark:hover:text-slate-300
         transition-colors
         rounded-md
