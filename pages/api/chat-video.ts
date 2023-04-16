@@ -24,13 +24,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const chain = makeChain(vectorStore)
 
   try {
+    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5)
     const response = await chain.call({
       question: sanitizedQuestion,
       chat_history: history || [],
     })
 
     console.log('response', response)
-    res.json({ response })
+    res.json({ answer: response.text, sources })
   } catch (error) {
     console.log('error', error)
     res.status(500).json({ error })

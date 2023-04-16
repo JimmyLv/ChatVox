@@ -38,7 +38,7 @@ export const AskQuestion = ({ input, setInput, sendMessage, loading }: any) => (
       )}
 
       {loading && (
-        <Button className="ml-2 h-20" disabled>
+        <Button className="ml-2" disabled>
           <LoadingText text="loading..." />
         </Button>
       )}

@@ -25,6 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'No video url in the request' })
   }
   const existingContent = await getVideoByUrl(url)
+
+  console.log(`========subtitles for ${url}========`, existingContent)
   if (existingContent) {
     return res.json({
       success: true,

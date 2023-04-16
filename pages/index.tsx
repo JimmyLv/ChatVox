@@ -1,7 +1,6 @@
 import { SearchDialog } from '@/components/SearchDialog'
 import TypingSlogan from '@/components/TypingSlogan'
 import { VideoForm } from '@/components/VideoForm'
-import { VideoPlayer } from '@/components/VideoPlayer'
 import { useAppStore } from '@/store'
 import styles from '@/styles/Home.module.css'
 import dynamic from 'next/dynamic'
@@ -10,10 +9,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const Chat = dynamic(() => import(`../components/Chat`), { ssr: false })
+const VideoArea = dynamic(() => import(`../components/VideoArea`), { ssr: false })
 
 export default function Home() {
   const { subtitleDocs } = useAppStore()
+
   return (
     <>
       <Head>
@@ -24,12 +24,7 @@ export default function Home() {
         <div className="sm:mt-30 mx-auto mt-8 w-full max-w-7xl px-4 lg:px-0">
           <VideoForm />
         </div>
-        {subtitleDocs.length > 0 && (
-          <div className="flex flex-col md:flex-row mx-auto w-full max-w-7xl items-end justify-center gap-8 p-2">
-            <VideoPlayer />
-            <Chat />
-          </div>
-        )}
+        {subtitleDocs.length > 0 && <VideoArea />}
         <div className={styles.center}>
           <SearchDialog />
         </div>

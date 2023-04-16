@@ -9,7 +9,7 @@ import { ChatLine, LoadingChatLine, type Message } from './ChatLine'
 export const initialMessages: Message[] = [
   {
     who: 'bot',
-    message: 'Hi! What can I do for you?',
+    message: 'Hey! What do you want to learn from this video?',
   },
 ]
 
@@ -65,7 +65,7 @@ export default function Chat({ className }: { className?: string }) {
       return
     }
 
-    const { answer, sources, is_plausible } = await response.json()
+    const { answer, sources } = await response.json()
     setLoading(false)
 
     if (error) {
@@ -77,7 +77,6 @@ export default function Chat({ className }: { className?: string }) {
           message: answer.trim(),
           who: 'bot',
           sources: sources,
-          isPlausible: is_plausible,
         } as Message,
       ])
     }
@@ -85,14 +84,8 @@ export default function Chat({ className }: { className?: string }) {
 
   return (
     <div className={clsx('w-full overflow-auto justify-between px-2', className)}>
-      {messages.map(({ message, who, sources, isPlausible }, index) => (
-        <ChatLine
-          key={index}
-          who={who}
-          message={message}
-          sources={sources}
-          isPlausible={isPlausible}
-        />
+      {messages.map(({ message, who, sources }, index) => (
+        <ChatLine key={index} who={who} message={message} sources={sources} />
       ))}
 
       {loading && <LoadingChatLine />}
@@ -102,18 +95,20 @@ export default function Chat({ className }: { className?: string }) {
           Type a message to ask related question
         </span>
       ) : (
-        <span className="justify-end content-center mx-auto flex flex-grow clear-both">
-          <Button disabled={loading} onClick={regenerateAnswer}>
-            <div className="flex flex-row items-center">
-              <Icons.package className="mr-2 h-5 w-5" /> Regenerate response
-            </div>
-          </Button>
-          <Button disabled={loading} onClick={resetChatConversation} className="ml-2">
-            <div className="flex flex-row items-center">
-              <Icons.close className="mr-2 h-5 w-5" /> New chat
-            </div>
-          </Button>
-        </span>
+        !loading && (
+          <span className="justify-end content-center mx-auto flex flex-grow clear-both">
+            <Button disabled={loading} onClick={regenerateAnswer}>
+              <div className="flex flex-row items-center">
+                <Icons.package className="mr-2 h-5 w-5" /> Regenerate response
+              </div>
+            </Button>
+            <Button disabled={loading} onClick={resetChatConversation} className="ml-2">
+              <div className="flex flex-row items-center">
+                <Icons.close className="mr-2 h-5 w-5" /> New chat
+              </div>
+            </Button>
+          </span>
+        )
       )}
 
       <AskQuestion input={input} setInput={setInput} sendMessage={sendMessage} loading={loading} />

@@ -28,7 +28,7 @@ export function VideoForm() {
   const { videoUrl, file, audioFile } = formValues
 
   const onFormSubmit: SubmitHandler<VideoConfigSchema> = async (data, e) => {
-    e?.preventDefault()
+    // e?.preventDefault()
     // resetChat()
 
     if (file?.name) {
