@@ -1,9 +1,9 @@
-import { CommonSubtitle, reduceSubtitle } from '@/lib/langchain/reduceSubtitle'
+import { SRTSubtitle } from '@/lib/langchain/reduceSubtitle'
 import { Document } from 'langchain/document'
 import { TextLoader } from 'langchain/document_loaders/fs/text'
 import type SRTParserT from 'srt-parser-2'
 
-export type SubtitleMetadata = Omit<CommonSubtitle, 'text'> & {
+export type SubtitleMetadata = Omit<SRTSubtitle, 'text'> & {
   source?: string
 }
 
@@ -21,7 +21,8 @@ export class SRTLoader extends TextLoader {
     const parser: SRTParserT = new SRTParser2()
 
     const srtSubtitles = parser.fromSrt(pageContent)
-    return reduceSubtitle(srtSubtitles).map((subtitle) => {
+    // return reduceSubtitle(srtSubtitles).map((subtitle) => {
+    return srtSubtitles.map((subtitle) => {
       const { text, ...rest } = subtitle
       return {
         pageContent: text,
