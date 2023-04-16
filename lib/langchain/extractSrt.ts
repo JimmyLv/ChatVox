@@ -7,9 +7,8 @@ export async function extractDataFromSrt(srtPath: string): Promise<Document[]> {
     const loader = new SRTLoader(srtPath)
 
     const rawDocs = await loader.load()
-    console.log('========rawDocs========', rawDocs)
-
-    return await splitDocsIntoChunks(rawDocs)
+    // console.log('========rawDocs========', rawDocs)
+    return rawDocs
   } catch (error) {
     console.error(`Error while extracting data from ${srtPath}: ${error}`)
     return []
@@ -24,6 +23,7 @@ async function splitDocsIntoChunks(docs: Document[]): Promise<Document[]> {
   return await textSplitter.splitDocuments(docs)
 }
 
+/*
 ;(async function run() {
   try {
     //load data from each url
@@ -34,3 +34,4 @@ async function splitDocsIntoChunks(docs: Document[]): Promise<Document[]> {
     console.log('error occured:', error)
   }
 })()
+*/

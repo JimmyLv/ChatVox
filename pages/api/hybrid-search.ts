@@ -2,7 +2,7 @@ import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
 import { SRTLoader } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
 // import { loadQAStuffChain, loadQAMapReduceChain, loadSummarizationChain } from 'langchain/chains'
-import { loadQAStuffChain } from 'langchain/chains'
+import { loadQAChain, loadQAStuffChain } from 'langchain/chains'
 import { Document } from 'langchain/document'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { OpenAI } from 'langchain/llms/openai'
@@ -31,7 +31,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     keywordQueryName: 'kw_match_documents',
   })
 
-  console.log('========req.body.query========', req.body.query)
   const query = req.body.query || 'What stories did Jobs tell?'
 
   const relevantResults = await retriever.getRelevantDocuments(query)
@@ -49,6 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const llm = new OpenAI({
     // temperature: 0.7,
+    maxTokens: 400,
   })
   const chain = loadQAStuffChain(llm)
   const response = await chain.call({

@@ -1,3 +1,5 @@
+import { reduceSubtitle } from '@/lib/langchain/reduceSubtitle'
+import { Document } from 'langchain/document'
 import { TextLoader } from 'langchain/document_loaders/fs/text'
 import type SRTParserT from 'srt-parser-2'
 
@@ -6,31 +8,30 @@ export class SRTLoader extends TextLoader {
     super(filePathOrBlob)
   }
 
-  protected async parse(raw: string): Promise<string[]> {
+  public async load(): Promise<Document<{ start: number }>[]> {
+    const parsed = await super.load()
+    const rawText = parsed[0]
+    const { pageContent, metadata } = rawText
+
     const { SRTParser2 } = await SRTLoaderImports()
     const parser: SRTParserT = new SRTParser2()
-    const srts = parser.fromSrt(raw)
-    return [
-      srts
-        .map((srt) => {
-          return {
-            start: srt.startSeconds,
-            text: srt.text,
-          }
-        })
-        .join(' '),
-    ]
+
+    const srts = parser.fromSrt(pageContent)
+    return reduceSubtitle(srts).map((srt) => ({
+      pageContent: srt.text,
+      metadata: {
+        ...metadata,
+        start: srt.start,
+      },
+    }))
   }
 }
 
 async function SRTLoaderImports(): Promise<{
-  // @ts-ignore
-  SRTParser2: typeof SRTParserT.default
+  SRTParser2: typeof SRTParserT
 }> {
   try {
-    // @ts-ignore
-    const SRTParser2 = (await import('srt-parser-2')).default.default
-    console.log('========SRTParser2========', SRTParser2)
+    const SRTParser2 = (await import('srt-parser-2')).default
     return { SRTParser2 }
   } catch (e) {
     throw new Error(
