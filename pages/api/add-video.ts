@@ -2,6 +2,8 @@ import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
 import { reduceDocuments } from '@/lib/langchain/reduceDocuments'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
+import { getVideoByUrl } from '@/lib/supabase/video'
+import { info } from 'autoprefixer'
 import { Document } from 'langchain/document'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
@@ -9,6 +11,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 // @ts-ignore
 import { getSubtitles } from 'youtube-captions-scraper'
 import getVideoId from 'get-video-id'
+// import ytdl from 'ytdl-core'
 
 interface YoutubeSubtitle {
   text: string
@@ -21,8 +24,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!url) {
     return res.status(400).json({ message: 'No video url in the request' })
   }
-
-  // if (existingContent)
+  const existingContent = await getVideoByUrl(url)
+  if (existingContent) {
+    return res.json({
+      success: true,
+      subtitleDocs: existingContent.map((doc) => ({
+        pageContent: doc.content,
+        metadata: doc.metadata,
+      })),
+      // videoInfo: info,
+    })
+  }
 
   const { id, service } = getVideoId(url)
   if (service !== 'youtube') {
@@ -30,9 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const subtitles: YoutubeSubtitle[] = await getSubtitles({
-      videoID: id,
-    })
+    const subtitles: YoutubeSubtitle[] = await getSubtitles({ videoID: id })
     const embeddings = new OpenAIEmbeddings()
     const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
 
@@ -54,6 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.json({
         success: true,
         subtitleDocs: docs,
+        // videoInfo: info,
       })
     }
 

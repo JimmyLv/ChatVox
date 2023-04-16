@@ -61,6 +61,7 @@ specifiers:
   unist-builder: ^3.0.1
   unist-util-filter: ^4.0.1
   youtube-captions-scraper: ^2.0.0
+  ytdl-core: ^4.11.4
   zod: ^3.21.4
   zustand: ^4.3.7
 
@@ -116,6 +117,7 @@ dependencies:
   unist-builder: 3.0.1
   unist-util-filter: 4.0.1
   youtube-captions-scraper: 2.0.0
+  ytdl-core: 4.11.4
   zod: 3.21.4
   zustand: 4.3.7_react@18.2.0
 
@@ -3169,6 +3171,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /m3u8stream/0.8.6:
+    resolution: {integrity: sha512-LZj8kIVf9KCphiHmH7sbFQTVe4tOemb202fWwvJwR9W5ENW/1hxJN6ksAWGhQgSBSa3jyWhnjKU1Fw1GaOdbyA==}
+    engines: {node: '>=12'}
+    dependencies:
+      miniget: 4.2.2
+      sax: 1.2.4
+    dev: false
+
   /marked-react/1.3.2_react@18.2.0:
     resolution: {integrity: sha512-ZJtBH6G1K6mHt/BhtZ/XQzcTyPvJRQdAWQKgYPgE38gvvwsyTg20OhVMHrQtqoM3Qr3IwzjbxO4+DD+YrrvHhA==}
     peerDependencies:
@@ -3570,6 +3580,11 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
+
+  /miniget/4.2.2:
+    resolution: {integrity: sha512-a7voNL1N5lDMxvTMExOkg+Fq89jM2vY8pAi9ZEWzZtfNmdfP6RXkvUtFnCAXoCv2T9k1v/fUJVaAEuepGcvLYA==}
+    engines: {node: '>=12'}
     dev: false
 
   /minimatch/3.1.2:
@@ -4272,6 +4287,10 @@ packages:
       is-regex: 1.1.4
     dev: false
 
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
+    dev: false
+
   /scheduler/0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
@@ -4932,6 +4951,15 @@ packages:
       striptags: 3.2.0
     transitivePeerDependencies:
       - debug
+    dev: false
+
+  /ytdl-core/4.11.4:
+    resolution: {integrity: sha512-tsVvqt++B5LSTMnCKQb4H/PFBewKj7gGPJ6KIM5gOFGMKNZj4qglGAl4QGFG8cNPP6wY54P80FDID5eN2di0GQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      m3u8stream: 0.8.6
+      miniget: 4.2.2
+      sax: 1.2.4
     dev: false
 
   /zod/3.21.4:
