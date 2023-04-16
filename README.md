@@ -2,7 +2,9 @@
 
 > based on Supabase's [Next.js OpenAI Doc Search Starter](https://github.com/supabase-community/nextjs-openai-doc-search?og=v2)
 
-This starter takes all the `.mdx` files in the `pages` directory and processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
+![ChatVox Cover Image](/public/og-image.png)
+
+This starter takes all the `.mdx` files in the `pages` directory or YouTube/Podcast link you enter on the page, then processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
 
 ## Deploy
 
