@@ -3,9 +3,9 @@ import { Document } from 'langchain/document'
 
 export function reduceDocuments(subtitleDocs: Document<SubtitleMetadata>[] = []) {
   // console.log('========subtitleDocs========', subtitleDocs)
-  // about 1-minute subtitle
-  const contextWindowSize = 10
-  const contextWindowOverlap = 2
+  // about 2-minute subtitle
+  const contextWindowSize = 20
+  const contextWindowOverlap = 3
 
   const documents = []
   for (let i = 0; i < subtitleDocs.length; i += contextWindowSize - contextWindowOverlap) {
