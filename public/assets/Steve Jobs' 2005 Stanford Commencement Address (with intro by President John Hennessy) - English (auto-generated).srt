@@ -1,0 +1,923 @@
+1
+00:00:06,710 --> 00:00:11,450
+this program is brought to you by Stanford University please visit us at
+
+2
+00:00:11,450 --> 00:00:13,900
+stanford.edu
+
+3
+00:00:19,680 --> 00:00:24,400
+it now gives me great pleasure to introduce this year's commencement
+
+4
+00:00:24,400 --> 00:00:28,440
+speaker Steve Jobs
+
+5
+00:00:31,680 --> 00:00:37,989
+the chief executive officer and co-founder of Apple and Pixar Animation
+
+6
+00:00:37,989 --> 00:00:46,210
+Studios Stanford University has been characterized since its founding by a
+
+7
+00:00:46,210 --> 00:00:50,320
+willingness to be bold and to strike out in new directions and this is a
+
+8
+00:00:50,320 --> 00:00:56,470
+characteristic very much shared by today's speaker a pioneer and visionary
+
+9
+00:00:56,470 --> 00:01:02,440
+for almost three decades his name and the companies he has founded have been
+
+10
+00:01:02,440 --> 00:01:07,780
+synonymous with innovation and creativity as a young boy growing up in
+
+11
+00:01:07,780 --> 00:01:15,789
+Los Altos Steve Jobs came of age at the same time as Silicon Valley while still
+
+12
+00:01:15,789 --> 00:01:18,759
+in school he attended lectures informally at
+
+13
+00:01:18,759 --> 00:01:24,670
+Stanford as well as at youlet Packard where he spent a summer working after
+
+14
+00:01:24,670 --> 00:01:30,250
+graduating from high school he left California to attend Reed College a trek
+
+15
+00:01:30,250 --> 00:01:36,479
+through India and a short stint as a video game designer for Atari followed
+
+16
+00:01:36,479 --> 00:01:43,810
+soon after his return to the valley in 1974 he became a regular along with
+
+17
+00:01:43,810 --> 00:01:49,540
+Steve Wozniak at meetings of the homebrew Computer Club held at the
+
+18
+00:01:49,540 --> 00:01:55,329
+Stanford Linear Accelerator Center it was not long before the two of them had
+
+19
+00:01:55,329 --> 00:02:01,439
+built the prototype for the Apple one the Apple one was very fast at the time
+
+20
+00:02:01,439 --> 00:02:08,579
+reading and writing for kilobytes in about 20 seconds
+
+21
+00:02:09,300 --> 00:02:17,230
+about 20,000 times slower than we do so today the Apple 2 was faster still but
+
+22
+00:02:17,230 --> 00:02:22,720
+more importantly introduced color monitors into the home market in the
+
+23
+00:02:22,720 --> 00:02:29,050
+mid-1980s the Macintosh became the first truly user-friendly personal computer
+
+24
+00:02:29,050 --> 00:02:34,720
+you didn't have to be an expert to set it up or to load software or to transfer
+
+25
+00:02:34,720 --> 00:02:39,160
+information between applications and the mouse offered point-and-click
+
+26
+00:02:39,160 --> 00:02:46,209
+convenience and opened the door to computer literacy for everyone I still
+
+27
+00:02:46,209 --> 00:02:52,870
+remember the amazed faces of onlookers as they saw a computer that was
+
+28
+00:02:52,870 --> 00:02:59,050
+completely different from the personal computers of that day Steve also
+
+29
+00:02:59,050 --> 00:03:04,360
+co-founded Pixar Animation Studios which has revolutionized the film industry in
+
+30
+00:03:04,360 --> 00:03:10,930
+its short history with brilliant use of technology and produced two Academy
+
+31
+00:03:10,930 --> 00:03:16,230
+award-winning films Toy Story and Finding Nemo
+
+32
+00:03:18,799 --> 00:03:24,420
+since has returned to Apple eight years ago Steve has reinvented the company
+
+33
+00:03:24,420 --> 00:03:32,269
+once again extending its vision to music and new digital media iPod and iTunes
+
+34
+00:03:32,269 --> 00:03:39,930
+have changed the way we listen to organize store and purchase our music
+
+35
+00:03:39,930 --> 00:03:47,040
+and in my case the way I often read books now songs we love are just 99
+
+36
+00:03:47,040 --> 00:03:54,170
+cents and a completely legal click away
+
+37
+00:03:56,030 --> 00:04:01,230
+iPhoto and iMovie revolutionized the ability of consumers to organize edit
+
+38
+00:04:01,230 --> 00:04:06,239
+and display digital photography and video putting capabilities that once
+
+39
+00:04:06,239 --> 00:04:12,900
+cost thousands of dollars into the hands of every Mac user Steve is also widely
+
+40
+00:04:12,900 --> 00:04:17,000
+recognized for his ability to create an innovative environment inside Apple as
+
+41
+00:04:17,000 --> 00:04:23,220
+well as an external company image that is equally innovative just think about
+
+42
+00:04:23,220 --> 00:04:28,229
+Apple's marketing campaigns over the past three decades a promotional flyer
+
+43
+00:04:28,229 --> 00:04:35,430
+in 1976 showed Isaac Newton sitting under a tree just as an apple was
+
+44
+00:04:35,430 --> 00:04:45,120
+falling by with the catchy exhortation to bite B yte into an apple there was an
+
+45
+00:04:45,120 --> 00:04:55,440
+iconic Superbowl commercial techy humor an iconic Superbowl commercial telling
+
+46
+00:04:55,440 --> 00:05:00,599
+us that the Macintosh was on the horizon and assuring us that we would see why
+
+47
+00:05:00,599 --> 00:05:09,389
+1984 wouldn't be like 1984 and in the late 1990s we saw banners and billboards
+
+48
+00:05:09,389 --> 00:05:15,810
+featuring Pablo Picasso Albert Einstein Martha Graham and Mahatma Gandhi all
+
+49
+00:05:15,810 --> 00:05:22,470
+urging us to think different Steve Jobs understands the creativity and
+
+50
+00:05:22,470 --> 00:05:28,469
+innovation start by thinking differently he has a deep-rooted belief in the power
+
+51
+00:05:28,469 --> 00:05:33,020
+of Education to transform lives coupled with the desire to make the
+
+52
+00:05:33,020 --> 00:05:38,600
+world a better place from the earliest days of Apple he worked to develop
+
+53
+00:05:38,600 --> 00:05:45,170
+partnerships with educators and get computers into schools for almost three
+
+54
+00:05:45,170 --> 00:05:49,790
+decades he and his companies have provided invaluable technology and
+
+55
+00:05:49,790 --> 00:05:55,280
+supports to schools and communities increasing accessibility to information
+
+56
+00:05:55,280 --> 00:06:03,080
+for learners of all ages more than 100 years ago in describing his vision for a
+
+57
+00:06:03,080 --> 00:06:09,770
+new University leland stanford rode the imagination needs to be cultivated and
+
+58
+00:06:09,770 --> 00:06:16,510
+developed to assure success in life stanford clearly understood that
+
+59
+00:06:16,510 --> 00:06:21,470
+technical knowledge was only the starting point for creation and
+
+60
+00:06:21,470 --> 00:06:27,110
+discovery Steve Jobs understands that the computer is a very powerful tool in
+
+61
+00:06:27,110 --> 00:06:33,020
+a technical sense but that it's true power lies in the ability to unleash the
+
+62
+00:06:33,020 --> 00:06:39,620
+imagination and creativity of the user as he explained to the New York Times in
+
+63
+00:06:39,620 --> 00:06:46,400
+a 1997 interview the Macintosh turned out so well because the people working
+
+64
+00:06:46,400 --> 00:06:50,450
+on it were musicians artists poets and
+
+65
+00:06:50,450 --> 00:06:57,680
+historians who also happen to be excellent computer scientists and last
+
+66
+00:06:57,680 --> 00:07:04,490
+fall a Businessweek reporter asked how he manages for innovation his answer was
+
+67
+00:07:04,490 --> 00:07:10,580
+deceptively simple we hire people who want to make the best things in the
+
+68
+00:07:10,580 --> 00:07:17,540
+world Steve Jobs personifies the spirit and creativity that have characterized
+
+69
+00:07:17,540 --> 00:07:23,990
+this university since its founding 114 years ago and we are pleased to have him
+
+70
+00:07:23,990 --> 00:07:28,040
+here today please join me in warmly welcoming this year's commencement
+
+71
+00:07:28,040 --> 00:07:31,360
+speaker Steve Jobs
+
+72
+00:07:39,190 --> 00:07:49,100
+thank you I'm honored to be with you today for your commencement from one of
+
+73
+00:07:49,100 --> 00:07:52,540
+the finest universities in the world
+
+74
+00:07:53,860 --> 00:08:02,180
+truth be told I never graduated from college and this is the closest I've
+
+75
+00:08:02,180 --> 00:08:05,350
+ever gotten to a college graduation
+
+76
+00:08:05,950 --> 00:08:11,420
+today I want to tell you three stories from my life that's it no big deal just
+
+77
+00:08:11,420 --> 00:08:20,150
+three stories the first story is about connecting the dots I dropped out of
+
+78
+00:08:20,150 --> 00:08:24,350
+Reed College after the first six months but then stayed around as a drop in for
+
+79
+00:08:24,350 --> 00:08:31,520
+another 18 months or so before I really quit so why did I drop out it started
+
+80
+00:08:31,520 --> 00:08:37,610
+before I was born my biological mother was a young unwed graduate student and
+
+81
+00:08:37,610 --> 00:08:42,770
+she decided to put me up for adoption she felt very strongly that I should be
+
+82
+00:08:42,770 --> 00:08:46,850
+adopted by college graduates so everything was all set for me to be
+
+83
+00:08:46,850 --> 00:08:52,340
+adopted at Birth by a lawyer and his wife except that when I popped out they
+
+84
+00:08:52,340 --> 00:08:57,590
+decided at the last minute that they really wanted a girl so my parents who
+
+85
+00:08:57,590 --> 00:09:02,420
+were on a waiting list got a call in the middle of the night asking we've got an
+
+86
+00:09:02,420 --> 00:09:10,550
+unexpected baby boy he want him they said of course my biological mother
+
+87
+00:09:10,550 --> 00:09:14,840
+found out later that my mother had never graduated from college and that my
+
+88
+00:09:14,840 --> 00:09:19,370
+father had never graduated from high school she refused to sign the final
+
+89
+00:09:19,370 --> 00:09:25,220
+adoption papers she only relented a few months later when my parents promised
+
+90
+00:09:25,220 --> 00:09:33,950
+that I would go to college this was the start in my life and 17 years later I
+
+91
+00:09:33,950 --> 00:09:39,410
+did go to college but I naively chose a college that was almost as expensive as
+
+92
+00:09:39,410 --> 00:09:44,270
+Stanford and all of my working-class parents savings were being spent on my
+
+93
+00:09:44,270 --> 00:09:49,760
+college tuition after six months I couldn't see the value in it I had no
+
+94
+00:09:49,760 --> 00:09:53,840
+idea what I wanted to do with my life and no idea how college was going to
+
+95
+00:09:53,840 --> 00:09:58,010
+help me figure it out and here I was spending all the money my parents had
+
+96
+00:09:58,010 --> 00:10:04,070
+saved their entire life so I decided to drop out and trust that it would all
+
+97
+00:10:04,070 --> 00:10:09,440
+work out okay it was pretty scary at the time but looking back it was one of the
+
+98
+00:10:09,440 --> 00:10:15,650
+best decisions I ever made the minute I dropped out I could stop taking the
+
+99
+00:10:15,650 --> 00:10:20,660
+required classes that didn't interest me and begin dropping in on the ones that
+
+100
+00:10:20,660 --> 00:10:25,970
+looked far more interesting it wasn't all romantic I didn't have a dorm room
+
+101
+00:10:25,970 --> 00:10:30,770
+so I slept on the floor in friends rooms I returned coke bottles for the five
+
+102
+00:10:30,770 --> 00:10:35,210
+cent deposits to buy food with and I would walk the seven miles across town
+
+103
+00:10:35,210 --> 00:10:40,180
+every Sunday night to get one good meal a week at the Hari Krishna temple I
+
+104
+00:10:40,180 --> 00:10:45,770
+loved it and much of what I stumbled into by following my curiosity and
+
+105
+00:10:45,770 --> 00:10:51,010
+intuition turned out to be priceless later on let me give you one example
+
+106
+00:10:51,010 --> 00:10:55,010
+Reed College at that time offered perhaps the best calligraphy instruction
+
+107
+00:10:55,010 --> 00:11:00,620
+in the country throughout the campus every poster every label on every drawer
+
+108
+00:11:00,620 --> 00:11:05,720
+was beautifully hand calligraphed because I had dropped out and didn't
+
+109
+00:11:05,720 --> 00:11:10,100
+have to take the normal classes I decided to take a calligraphy class to
+
+110
+00:11:10,100 --> 00:11:14,450
+learn how to do this I learned about serif and sans-serif typefaces about
+
+111
+00:11:14,450 --> 00:11:18,620
+varying the amount of space between different letter combinations about what
+
+112
+00:11:18,620 --> 00:11:24,280
+makes great typography great it was beautiful historical artistically
+
+113
+00:11:24,280 --> 00:11:30,860
+subtle in a way that science can't capture and I found it fascinating none
+
+114
+00:11:30,860 --> 00:11:36,680
+of this had even a hope of any practical application in my life but 10 years
+
+115
+00:11:36,680 --> 00:11:41,090
+later when we were designing the first Macintosh computer it all came back to
+
+116
+00:11:41,090 --> 00:11:45,830
+me and we designed it all into the Mac it was the first computer with beautiful
+
+117
+00:11:45,830 --> 00:11:51,710
+typography if I had never dropped in on that single course in college the Mac
+
+118
+00:11:51,710 --> 00:11:56,240
+would have never had multiple typefaces or proportionally spaced fonts and since
+
+119
+00:11:56,240 --> 00:12:01,840
+windows just copied the Mac it's likely that no personal computer
+
+120
+00:12:07,490 --> 00:12:12,000
+if I had never dropped out I would have never dropped in on that calligraphy
+
+121
+00:12:12,000 --> 00:12:15,750
+class and personal computers might not have the wonderful typography that they
+
+122
+00:12:15,750 --> 00:12:20,130
+do of course it was impossible to connect the dots looking forward when I
+
+123
+00:12:20,130 --> 00:12:24,690
+was in college but it was very very clear looking backwards ten years later
+
+124
+00:12:24,690 --> 00:12:29,520
+again you can't connect the dots looking forward you can only connect them
+
+125
+00:12:29,520 --> 00:12:34,050
+looking backwards so you have to trust that the dots will somehow connect in
+
+126
+00:12:34,050 --> 00:12:38,430
+your future you have to trust in something your gut destiny life karma
+
+127
+00:12:38,430 --> 00:12:44,100
+whatever because believing that the dots will connect down the road will give you
+
+128
+00:12:44,100 --> 00:12:48,570
+the confidence to follow your heart even when it leads you off the well-worn path
+
+129
+00:12:48,570 --> 00:13:01,700
+and that will make all the difference my second story is about love and loss I
+
+130
+00:13:01,700 --> 00:13:08,010
+was lucky I found what I loved to do early in life woz and I started Apple in
+
+131
+00:13:08,010 --> 00:13:12,630
+my parent's garage when I was 20 we worked hard and in 10 years Apple had
+
+132
+00:13:12,630 --> 00:13:16,380
+grown from just the two of us in a garage into a two billion dollar company
+
+133
+00:13:16,380 --> 00:13:20,700
+with over 4,000 employees we just released our finest creation the
+
+134
+00:13:20,700 --> 00:13:27,780
+Macintosh a year earlier and I just turned 30 and then I got fired how can
+
+135
+00:13:27,780 --> 00:13:33,750
+you get fired from a company you started well as Apple grew we hired someone who
+
+136
+00:13:33,750 --> 00:13:37,680
+I thought was very talented to run the company with me and for the first year
+
+137
+00:13:37,680 --> 00:13:41,490
+or so things went well but then our visions of the future began to diverge
+
+138
+00:13:41,490 --> 00:13:46,410
+and eventually we had a falling out when we did our Board of Directors sided with
+
+139
+00:13:46,410 --> 00:13:52,650
+him and so at 30 I was out and very publicly out what had been the focus of
+
+140
+00:13:52,650 --> 00:13:57,750
+my entire adult life was gone and it was devastating I really didn't know what to
+
+141
+00:13:57,750 --> 00:14:01,530
+do for a few months I felt that I had let the previous generation of
+
+142
+00:14:01,530 --> 00:14:05,780
+entrepreneurs down that I had dropped the baton as it was being passed to me I
+
+143
+00:14:05,780 --> 00:14:11,220
+met with David Packard and Bob Noyce and tried to apologize for screwing up so
+
+144
+00:14:11,220 --> 00:14:14,600
+badly I was a very public failure and I even
+
+145
+00:14:14,600 --> 00:14:18,500
+thought about running away from the valley but something slowly began to
+
+146
+00:14:18,500 --> 00:14:25,040
+dawn on me I still loved what I did the turn of events at Apple had not changed
+
+147
+00:14:25,040 --> 00:14:31,250
+that one bit I've been rejected but I was still in love and so I decided to
+
+148
+00:14:31,250 --> 00:14:36,380
+start over I didn't see it then but it turned out that getting fired from Apple
+
+149
+00:14:36,380 --> 00:14:40,310
+was the best thing that could have ever happened to me the heaviness of being
+
+150
+00:14:40,310 --> 00:14:44,960
+successful was replaced by the lightness of being a beginner again less sure
+
+151
+00:14:44,960 --> 00:14:48,620
+about everything it freed me to enter one of the most creative periods of my
+
+152
+00:14:48,620 --> 00:14:53,060
+life during the next five years I started a company named next another
+
+153
+00:14:53,060 --> 00:14:56,450
+company named Pixar and fell in love with an amazing woman who would become
+
+154
+00:14:56,450 --> 00:15:00,800
+my wife Pixar went on to create the world's first computer animated feature
+
+155
+00:15:00,800 --> 00:15:07,240
+film Toy Story and is now the most successful animation studio in the world
+
+156
+00:15:07,240 --> 00:15:13,220
+in a remarkable turn of events Apple bought next and I returned to Apple and
+
+157
+00:15:13,220 --> 00:15:16,790
+the technology we developed it next is at the heart of Apple's current
+
+158
+00:15:16,790 --> 00:15:22,610
+Renaissance and Laureen and I have a wonderful family together I'm pretty
+
+159
+00:15:22,610 --> 00:15:25,880
+sure none of this would have happened if I hadn't been fired from Apple
+
+160
+00:15:25,880 --> 00:15:31,130
+it was awful tasting medicine but I guess the patient needed it sometime
+
+161
+00:15:31,130 --> 00:15:35,090
+life sometimes life's going to hit you in the head with a brick don't lose
+
+162
+00:15:35,090 --> 00:15:39,500
+faith I'm convinced that the only thing that kept me going was that I loved what
+
+163
+00:15:39,500 --> 00:15:44,720
+I did you've got to find what you love and that is as true for work as it is
+
+164
+00:15:44,720 --> 00:15:49,100
+for your lovers your work is going to fill a large part of your life and the
+
+165
+00:15:49,100 --> 00:15:53,540
+only way to be truly satisfied is to do what you believe is great work and the
+
+166
+00:15:53,540 --> 00:15:58,430
+only way to do great work is to love what you do if you haven't found it yet
+
+167
+00:15:58,430 --> 00:16:03,980
+keep looking and don't settle as with all matters of the heart you'll know
+
+168
+00:16:03,980 --> 00:16:08,150
+when you find it and like any great relationship it just gets better and
+
+169
+00:16:08,150 --> 00:16:14,230
+better as the years roll on so keep looking don't settle
+
+170
+00:16:22,770 --> 00:16:29,820
+my third story is about death when I was 17 I read a quote that went something
+
+171
+00:16:29,820 --> 00:16:35,220
+like if you live each day as if it was your last someday you'll most certainly
+
+172
+00:16:35,220 --> 00:16:43,770
+be right it made an impression on me and since then for the past 33 years I've
+
+173
+00:16:43,770 --> 00:16:47,820
+looked in the mirror every morning and asked myself if today were the last day
+
+174
+00:16:47,820 --> 00:16:53,130
+of my life what I want to do what I am about to do today and whenever the
+
+175
+00:16:53,130 --> 00:16:58,310
+answer has been no for too many days in a row I know I need to change something
+
+176
+00:16:58,310 --> 00:17:02,610
+remembering that I'll be dead soon is the most important tool I've ever
+
+177
+00:17:02,610 --> 00:17:06,780
+encountered to help me make the big choices in life because almost
+
+178
+00:17:06,780 --> 00:17:12,150
+everything all external expectations all pride all fear of embarrassment or
+
+179
+00:17:12,150 --> 00:17:17,190
+failure these things just fall away in the face of death leaving only what is
+
+180
+00:17:17,190 --> 00:17:22,589
+truly important remembering that you are going to die is the best way I know to
+
+181
+00:17:22,589 --> 00:17:27,290
+avoid the trap of thinking you have something to lose you are already naked
+
+182
+00:17:27,290 --> 00:17:34,470
+there is no reason not to follow your heart about a year ago I was diagnosed
+
+183
+00:17:34,470 --> 00:17:39,900
+with cancer I had a scan at 7:30 in the morning and it clearly showed a tumor on
+
+184
+00:17:39,900 --> 00:17:45,960
+my pancreas I didn't even know what a pancreas was the doctors told me this
+
+185
+00:17:45,960 --> 00:17:49,830
+was almost certainly a type of cancer that is incurable and that I should
+
+186
+00:17:49,830 --> 00:17:55,260
+expect to live no longer than three to six months my doctor advised me to go
+
+187
+00:17:55,260 --> 00:18:01,950
+home and get my affairs in order which is doctors code for prepare to die it
+
+188
+00:18:01,950 --> 00:18:06,450
+means to try and tell your kids everything you thought you'd have the
+
+189
+00:18:06,450 --> 00:18:11,340
+next 10 years to tell them in just a few months it means to make sure everything
+
+190
+00:18:11,340 --> 00:18:16,260
+is buttoned up so that will be as easy as possible for your family it means to
+
+191
+00:18:16,260 --> 00:18:23,250
+say your goodbyes I live with that diagnosis all day later that evening I
+
+192
+00:18:23,250 --> 00:18:27,330
+had a biopsy where they stuck an endoscope down my throat through my
+
+193
+00:18:27,330 --> 00:18:31,470
+stomach and into my intestines put a needle into my pancreas and got a few
+
+194
+00:18:31,470 --> 00:18:36,330
+cells from the tumor I was sedated but my wife who was there
+
+195
+00:18:36,330 --> 00:18:40,560
+told me that when they viewed the cells under a microscope the doctor started
+
+196
+00:18:40,560 --> 00:18:44,880
+crying because it turned out to be a very rare form of pancreatic cancer that
+
+197
+00:18:44,880 --> 00:18:52,130
+is curable with surgery I had the surgery and thankfully I'm fine now
+
+198
+00:18:58,020 --> 00:19:02,860
+this was the closest I've been to facing death and I hope it's the closest I get
+
+199
+00:19:02,860 --> 00:19:07,630
+for a few more decades having lived through it I can now say this to you
+
+200
+00:19:07,630 --> 00:19:10,870
+with a bit more certainty than when death was a useful but purely
+
+201
+00:19:10,870 --> 00:19:17,650
+intellectual concept no one wants to die even people who want to go to heaven
+
+202
+00:19:17,650 --> 00:19:22,900
+don't want to die to get there and yet death is the destination we all
+
+203
+00:19:22,900 --> 00:19:29,170
+share no one has ever escaped it and that is as it should be because death is
+
+204
+00:19:29,170 --> 00:19:35,140
+very likely the single best invention of life its life's change agent it clears
+
+205
+00:19:35,140 --> 00:19:41,230
+out the old to make way for the new right now the new is you but some day
+
+206
+00:19:41,230 --> 00:19:46,750
+not too long from now you will gradually become the old and be cleared away sorry
+
+207
+00:19:46,750 --> 00:19:53,320
+to be so dramatic but it's quite true your time is limited so don't waste it
+
+208
+00:19:53,320 --> 00:19:58,450
+living someone else's life don't be trapped by Dogma which is living with
+
+209
+00:19:58,450 --> 00:20:02,500
+the results of other people's thinking don't let the noise of others opinions
+
+210
+00:20:02,500 --> 00:20:07,600
+drown out your own inner voice and most important have the courage to follow
+
+211
+00:20:07,600 --> 00:20:12,549
+your heart and intuition they somehow already know what you truly want to
+
+212
+00:20:12,549 --> 00:20:17,790
+become everything else is secondary
+
+213
+00:20:26,809 --> 00:20:32,070
+when I was young there was an amazing publication called the Whole Earth
+
+214
+00:20:32,070 --> 00:20:37,350
+Catalog which was one of the Bible's of my generation it was created by a fellow
+
+215
+00:20:37,350 --> 00:20:42,059
+named Stuart brand not far from here in Menlo Park and he brought it to life
+
+216
+00:20:42,059 --> 00:20:46,950
+with his poetic touch this was in the late 60s before personal computers and
+
+217
+00:20:46,950 --> 00:20:51,240
+desktop publishing so it was all made with typewriters scissors and Polaroid
+
+218
+00:20:51,240 --> 00:20:56,549
+cameras it was sort of like Google and paperback form 35 years before Google
+
+219
+00:20:56,549 --> 00:21:03,720
+came along it was idealistic overflowing with neat tools and great notions Stuart
+
+220
+00:21:03,720 --> 00:21:08,070
+and his team put out several issues of the Whole Earth Catalog and then when it
+
+221
+00:21:08,070 --> 00:21:10,620
+had run its course they put out a final issue
+
+222
+00:21:10,620 --> 00:21:18,240
+it was the mid-1970s and I was your age on the back cover of their final issue
+
+223
+00:21:18,240 --> 00:21:23,159
+was a photograph of an early-morning country road the kind you might find
+
+224
+00:21:23,159 --> 00:21:28,130
+yourself hitchhiking on if you were so adventurous beneath it were the words
+
+225
+00:21:28,130 --> 00:21:35,309
+stay hungry stay foolish it was their farewell message as they signed off stay
+
+226
+00:21:35,309 --> 00:21:42,899
+hungry stay foolish and I have always wished that for myself and now as you
+
+227
+00:21:42,899 --> 00:21:50,159
+graduate to begin anew I wish that for you stay hungry stay foolish thank you
+
+228
+00:21:50,159 --> 00:21:52,610
+all very much
+
+229
+00:21:54,119 --> 00:21:56,179
+you
+
+230
+00:22:01,490 --> 00:22:06,840
+the preceding program is copyrighted by Stanford University please visit us at
+
+231
+00:22:06,840 --> 00:22:09,320
+stanford.edu

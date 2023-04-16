@@ -1,13 +1,33 @@
+import { Document } from 'langchain/document'
 import { supabaseClient } from '@/lib/supabase/client'
+import { SRTLoader } from 'langchain/document_loaders/fs/srt'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { SupabaseHybridSearch } from 'langchain/retrievers/supabase'
+import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { NextRequest } from 'next/server'
+const { OpenAI } = require('langchain/llms/openai')
+const { loadQAStuffChain } = require('langchain/chains')
+async function splitDocsIntoChunks(docs: Document[]): Promise<Document[]> {
+  const textSplitter = new RecursiveCharacterTextSplitter({
+    chunkSize: 2000,
+    chunkOverlap: 200,
+  })
+  return await textSplitter.splitDocuments(docs)
+}
 
 // https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/subtitles
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const embeddings = new OpenAIEmbeddings()
+  const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
+
+  const loader = new SRTLoader(
+    "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
+  )
+
+  const rawDocs = await loader.load()
+  const docs = await splitDocsIntoChunks(rawDocs)
+  await vectorStore.addDocuments(docs)
 
   const retriever = new SupabaseHybridSearch(embeddings, {
     client: supabaseClient,
@@ -19,26 +39,30 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     keywordQueryName: 'kw_match_documents',
   })
 
-  const results = await retriever.getRelevantDocuments('hello bye')
+  console.log('========req.body.query========', req.body.query)
+  const query = req.body.query || 'What stories did Jobs tell?'
 
-  console.log(results)
+  const relevantResults = await retriever.getRelevantDocuments(query)
+
+  console.log({ relevantResults })
 
   // ----
+  const searchResults = await vectorStore.similaritySearch(query, 5)
 
-  const vectorStore = await SupabaseVectorStore.fromTexts(
-    ['Hello world', 'Bye bye', "What's this?"],
-    [{ id: 2 }, { id: 1 }, { id: 3 }],
-    embeddings,
-    {
-      client: supabaseClient,
-      tableName: 'documents',
-      queryName: 'match_documents',
-    }
-  )
+  console.log({ searchResults })
 
-  const resultOne = await vectorStore.similaritySearch('Hello world', 1)
+  // ---
 
-  console.log(resultOne)
+  // const searchResults = await docSearch.similaritySearch(query, 5);
 
-  return res.json({ results, resultOne })
+  const llm = new OpenAI({
+    // temperature: 0.7,
+  })
+  const chain = loadQAStuffChain(llm)
+  const response = await chain.call({
+    input_documents: relevantResults,
+    question: query,
+  })
+
+  return res.json({ answer: response, relevantResults, searchResults })
 }

@@ -35,6 +35,7 @@ specifiers:
   prettier: ^2.8.7
   react: 18.2.0
   react-dom: 18.2.0
+  srt-parser-2: ^1.2.2
   sse.js: ^0.6.1
   tailwind-merge: ^1.10.0
   tailwindcss: ^3.2.7
@@ -59,7 +60,7 @@ dependencies:
   eslint-config-next: 13.2.4_j4766f7ecgqbon3u7zlxn5zszu
   github-slugger: 2.0.0
   gpt3-tokenizer: 1.1.5
-  langchain: 0.0.56_hednhu44abanrobbkg3rilhude
+  langchain: 0.0.56_vg2gb77cp77imobbzfm4x5gymm
   lucide-react: 0.128.0_react@18.2.0
   marked-react: 1.3.2_react@18.2.0
   mdast: 3.0.0
@@ -72,6 +73,7 @@ dependencies:
   openai: 3.2.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  srt-parser-2: 1.2.2
   sse.js: 0.6.1
   tailwind-merge: 1.10.0
   tailwindcss-animate: 1.0.5_tailwindcss@3.2.7
@@ -2647,7 +2649,7 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /langchain/0.0.56_hednhu44abanrobbkg3rilhude:
+  /langchain/0.0.56_vg2gb77cp77imobbzfm4x5gymm:
     resolution: {integrity: sha512-5+UCYhKwg//fm2Gb32EpKQiuNlJqt2YdKIFyZRCEyqMSmTd1Cu4QcdRMjFfl7IVwyY3xrUC7dQIMsJ6k+TsRrA==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -2744,6 +2746,7 @@ packages:
       openai: 3.2.1
       p-queue: 6.6.2
       p-retry: 4.6.2
+      srt-parser-2: 1.2.2
       uuid: 9.0.0
       yaml: 2.2.1
       zod: 3.21.4
@@ -3909,6 +3912,11 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /srt-parser-2/1.2.2:
+    resolution: {integrity: sha512-SlWIhy9mQGMY8BHv1MkeQbCx6gHUNG0NecZro4QIDxzIpBw3Q0kFjA4EWyE9I+H7VrmdPYBHlvtrKzMLFTKP0g==}
+    hasBin: true
+    dev: false
 
   /sse.js/0.6.1:
     resolution: {integrity: sha512-peXG6GnWqF5hnubhMw0WfB6rqQy7z7LaMBT067vqgQwC3gKz8JGFzexBSV80FqZ9JoUDwo3Xt5nxkrGrgbPrtA==}
