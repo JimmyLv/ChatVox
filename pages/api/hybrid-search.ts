@@ -1,4 +1,3 @@
-import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
 import { supabaseClient } from '@/lib/supabase/client'
 import { loadQAStuffChain } from 'langchain/chains'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
@@ -10,12 +9,9 @@ import { NextApiRequest, NextApiResponse } from 'next'
 // https://js.langchain.com/docs/modules/indexes/document_loaders/examples/file_loaders/subtitles
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const embeddings = new OpenAIEmbeddings()
-  const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
-
-  const docs = await extractDataFromSrt(
-    "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
-  )
-  await vectorStore.addDocuments(docs)
+  const vectorStore = await SupabaseVectorStore.fromExistingIndex(embeddings, {
+    client: supabaseClient,
+  })
 
   const retriever = new SupabaseHybridSearch(embeddings, {
     client: supabaseClient,
