@@ -22,7 +22,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <TypingSlogan />
-        <div className="sm:mt-30 mx-auto mt-8 w-full max-w-7xl md:px-4 px-0">
+        <div className="sm:mt-30 mx-auto mt-8 w-full max-w-7xl px-0">
           <VideoForm />
         </div>
         {subtitleDocs.length > 0 && <VideoArea />}
