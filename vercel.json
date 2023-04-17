@@ -1,0 +1,17 @@
+{
+  "github": {
+    "silent": true
+  },
+  "functions": {
+    "pages/api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/transcribe",
+      "destination": "https://aitodo.co/api/transcribe"
+    }
+  ]
+}
