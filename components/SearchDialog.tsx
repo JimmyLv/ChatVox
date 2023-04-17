@@ -177,11 +177,11 @@ export function SearchDialog() {
         transition-colors
         rounded-md
         border border-slate-200 dark:border-slate-500 hover:border-slate-300 dark:hover:border-slate-500
-        min-w-[300px] "
+        min-w-[500px] "
       >
         <Search width={15} />
         <span className="border border-l h-5"></span>
-        <span className="inline-block ml-4">Search...</span>
+        <span className="inline-block ml-4">Search All Videos...</span>
         <kbd
           className="absolute right-3 top-2.5
           pointer-events-none inline-flex h-5 select-none items-center gap-1

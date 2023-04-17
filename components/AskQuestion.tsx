@@ -32,8 +32,8 @@ export const AskQuestion = ({ input, setInput, sendMessage, loading }: any) => (
             setInput('')
           }}
         >
+          <Icons.arrowRight className="mr-2 h-5 w-5" />
           Ask
-          <Icons.arrowRight className="ml-2 h-5 w-5" />
         </Button>
       )}
 

@@ -99,12 +99,12 @@ export default function Chat({ className }: { className?: string }) {
           <span className="justify-end content-center mx-auto flex flex-grow clear-both">
             <Button disabled={loading} onClick={regenerateAnswer}>
               <div className="flex flex-row items-center">
-                <Icons.package className="mr-2 h-5 w-5" /> Regenerate response
+                <Icons.retry className="mr-2 h-5 w-5" /> Regenerate
               </div>
             </Button>
             <Button disabled={loading} onClick={resetChatConversation} className="ml-2">
               <div className="flex flex-row items-center">
-                <Icons.close className="mr-2 h-5 w-5" /> New chat
+                <Icons.chat className="mr-2 h-5 w-5" /> New chat
               </div>
             </Button>
           </span>
