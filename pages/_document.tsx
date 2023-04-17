@@ -7,7 +7,7 @@ export default function Document() {
   let description = t(
     `Chat With Any Video, challenge myself to complete in @Supabase AI Hackathon.`
   )
-  let ogimage = `og-image.png`
+  let ogimage = `/og-image.png`
   let sitename = CURRENT_DOMAIN
   let title = t('ChatVox · Chat With Any Video')
 
