@@ -10,7 +10,7 @@ export const AskQuestion = ({ input, setInput, sendMessage, loading }: any) => (
         type="text"
         aria-label="chat input"
         required
-        className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm"
+        className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 sm:text-sm dark:placeholder:text-black"
         value={input}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

@@ -18,7 +18,7 @@ export const LoadingChatLine = () => (
   <div className="flex min-w-full animate-pulse px-4 py-5 sm:px-6">
     <div className="flex flex-grow space-x-3">
       <div className="min-w-0 flex-1">
-        <p className="font-large text-xxl text-gray-900">
+        <p className="font-large text-xxl text-gray-900 dark:text-black">
           <a href="#" className="hover:underline">
             ChatVox AI is thinking...
           </a>
@@ -52,7 +52,7 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
   return (
     <div className={who != 'bot' ? 'float-right clear-both back' : 'float-left clear-both'}>
       {/*<BalancerWrapper>*/}
-      <div className="float-right mb-5 rounded-lg bg-white px-4 py-5 shadow-lg ring-1 ring-zinc-100 sm:px-6">
+      <div className="float-right mb-5 rounded-lg bg-white dark:text-black px-4 py-5 shadow-lg ring-1 ring-zinc-100 sm:px-6">
         <div className="flex space-x-3">
           <div className="flex-1 gap-4 flex flex-row">
             <div>
@@ -64,7 +64,7 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
               <p className={clsx('text ', who == 'bot' ? 'font-semibold font- ' : 'text-gray-400')}>
                 {formatteMessage}
               </p>
-              <div className="grid grid-cols-3 mt-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 mt-2">
                 {sources &&
                   uniqBy(sources, (i) => i.metadata.start).map((source_doc, index) => {
                     const { pageContent: page_content, metadata } = source_doc
