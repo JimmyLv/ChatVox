@@ -1,6 +1,8 @@
 'use client'
 
-import * as React from 'react'
+import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
+import { Document } from 'langchain/document'
+import { LoadingChatLine } from '@/components/ChatLine'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -11,10 +13,11 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { SSE } from 'sse.js'
-import type { CreateCompletionResponse } from 'openai'
-import { X, Loader, User, Frown, CornerDownLeft, Search, Wand } from 'lucide-react'
+import { CornerDownLeft, Frown, Loader, Search, User, Wand, X } from 'lucide-react'
 import Markdown from 'marked-react'
+import type { CreateCompletionResponse } from 'openai'
+import * as React from 'react'
+import { SSE } from 'sse.js'
 
 function promptDataReducer(
   state: any[],
@@ -58,6 +61,14 @@ function promptDataReducer(
   return [...current]
 }
 
+function mapResult(relevantResults: Document<SubtitleMetadata>[]) {
+  return relevantResults
+    .map(
+      ({ pageContent, metadata }) => `- [${pageContent}](${metadata.source}?t=${metadata.start})`
+    )
+    .join('\n')
+}
+
 export function SearchDialog() {
   const [open, setOpen] = React.useState(false)
   const [search, setSearch] = React.useState<string>('')
@@ -98,6 +109,8 @@ export function SearchDialog() {
     setIsLoading(false)
   }
 
+  const enabledStream = false
+
   const handleConfirm = React.useCallback(
     async (query: string) => {
       setAnswer(undefined)
@@ -107,7 +120,57 @@ export function SearchDialog() {
       setHasError(false)
       setIsLoading(true)
 
-      const eventSource = new SSE(`api/vector-search`, {
+      if (!enabledStream) {
+        const response = await fetch('/api/hybrid-search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            query,
+          }),
+        })
+        setIsLoading(false)
+
+        if (!response.ok) {
+          setHasError(true)
+          return
+        }
+
+        const { answer, relevantResults, searchResults } = await response.json()
+
+        console.log(
+          '========relevantResults, searchResults========',
+          relevantResults,
+          searchResults
+        )
+        const finalResult = `> ${answer.text}
+
+## Relevant Results
+${mapResult(relevantResults)}
+
+
+## FullText Search Results
+${mapResult(searchResults)}
+`
+
+        setAnswer((prevAnswer) => {
+          const currentAnswer = prevAnswer ?? ''
+
+          dispatchPromptData({
+            index: promptIndex,
+            answer: currentAnswer + finalResult,
+          })
+
+          return (prevAnswer ?? '') + finalResult
+        })
+        setPromptIndex((x) => {
+          return x + 1
+        })
+        return
+      }
+
+      const eventSource = new SSE(`api/hybrid-search`, {
         headers: {
           apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? '',
           Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
@@ -168,6 +231,7 @@ export function SearchDialog() {
     handleConfirm(search)
   }
 
+  const defaultSearchText = 'Your time is limited, so don’t waste it living someone else’s life'
   return (
     <>
       <button
@@ -198,7 +262,7 @@ export function SearchDialog() {
           <DialogHeader>
             <DialogTitle>OpenAI powered video/audio transcripts search</DialogTitle>
             <DialogDescription>
-              Build your own ChatGPT style search with Next.js, OpenAI & Supabase.
+              Build your own ChatGPT style search with Whisper, OpenAI & Supabase.
             </DialogDescription>
             <hr />
             <button className="absolute top-0 right-2 p-2" onClick={() => setOpen(false)}>
@@ -220,8 +284,11 @@ export function SearchDialog() {
               )}
 
               {isLoading && (
-                <div className="animate-spin relative flex w-5 h-5 ml-2">
-                  <Loader />
+                <div className="flex items-center">
+                  <div className="animate-spin relative flex w-5 h-5 ml-2">
+                    <Loader />
+                  </div>
+                  <LoadingChatLine />
                 </div>
               )}
 
@@ -244,7 +311,7 @@ export function SearchDialog() {
                     </span>
                     <h3 className="font-semibold">Answer:</h3>
                   </div>
-                  <div className="markdown-body">
+                  <div className="markdown-body w-full break-words max-h-80 overflow-y-auto">
                     <Markdown>{answer}</Markdown>
                   </div>
                 </div>
@@ -273,11 +340,9 @@ export function SearchDialog() {
                   hover:bg-slate-100 dark:hover:bg-gray-600
                   rounded border border-slate-200 dark:border-slate-600
                   transition-colors"
-                  onClick={(_) =>
-                    setSearch('Create a table called profiles with fields id, name, email')
-                  }
+                  onClick={(_) => setSearch(defaultSearchText)}
                 >
-                  Create a table called profiles with fields id, name, email
+                  {defaultSearchText}
                 </button>
               </div>
             </div>
