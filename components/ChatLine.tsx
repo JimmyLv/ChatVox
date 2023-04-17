@@ -2,8 +2,8 @@ import Source from '@/components/Source'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import clsx from 'clsx'
 import { Document } from 'langchain/document'
-import Balancer from 'react-wrap-balancer'
 import uniqBy from 'lodash.uniqby'
+import Balancer from 'react-wrap-balancer'
 
 const BalancerWrapper = (props: any) => <Balancer {...props} />
 
@@ -49,6 +49,11 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
     return null
   }
   const formatteMessage = convertNewLines(message)
+  const filteredSources = sources
+    ? uniqBy(sources, (i) => i.metadata.start).sort(
+        (a, b) => Number(a.metadata.start) - Number(b.metadata.start)
+      )
+    : []
   return (
     <div className={who != 'bot' ? 'float-right clear-both back' : 'float-left clear-both'}>
       {/*<BalancerWrapper>*/}
@@ -65,20 +70,19 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
                 {formatteMessage}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 mt-2">
-                {sources &&
-                  uniqBy(sources, (i) => i.metadata.start).map((source_doc, index) => {
-                    const { pageContent: page_content, metadata } = source_doc
-                    const { source, start } = metadata
-                    return (
-                      <Source
-                        key={index}
-                        index={index}
-                        pageContent={page_content}
-                        source={source}
-                        start={start}
-                      />
-                    )
-                  })}
+                {filteredSources.map((source_doc, index) => {
+                  const { pageContent: page_content, metadata } = source_doc
+                  const { source, start } = metadata
+                  return (
+                    <Source
+                      key={index}
+                      index={index}
+                      pageContent={page_content}
+                      source={source}
+                      start={start}
+                    />
+                  )
+                })}
               </div>
             </div>
           </div>
