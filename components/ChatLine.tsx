@@ -58,7 +58,7 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
             <div>
               <p className="font-large text-xxl text-gray-900">
                 <a href="#" className="hover:underline">
-                  {who == 'bot' ? 'ChatBox AI' : 'You'}
+                  {who == 'bot' ? 'ChatVox AI' : 'You'}
                 </a>
               </p>
               <p className={clsx('text ', who == 'bot' ? 'font-semibold font- ' : 'text-gray-400')}>
