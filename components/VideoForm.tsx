@@ -48,7 +48,7 @@ export function VideoForm() {
     <form onSubmit={handleSubmit(onFormSubmit)} className="grid place-items-center p-2">
       <div className="flex w-full items-end justify-between">
         <div className="flex flex-col mx-auto w-full">
-          <label htmlFor="videoUrl">Please input youtube.com video link，and press Enter</label>
+          <label htmlFor="videoUrl">Please input youtube.com video link, and press Enter</label>
           <input
             type="text"
             id="videoUrl"
