@@ -20,6 +20,7 @@ specifiers:
   '@types/node': 18.15.10
   '@types/react': 18.0.30
   '@types/react-dom': 18.0.11
+  '@vercel/analytics': ^0.1.11
   autoprefixer: ^10.4.14
   class-variance-authority: ^0.5.2
   clsx: ^1.2.1
@@ -85,6 +86,7 @@ dependencies:
   '@types/node': 18.15.10
   '@types/react': 18.0.30
   '@types/react-dom': 18.0.11
+  '@vercel/analytics': 0.1.11_react@18.2.0
   class-variance-authority: 0.5.2_typescript@5.0.2
   clsx: 1.2.1
   cmdk: 0.2.0_4qaawyptjkcgzqorucvhm3koke
@@ -1409,6 +1411,14 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.57.0
       eslint-visitor-keys: 3.4.0
+    dev: false
+
+  /@vercel/analytics/0.1.11_react@18.2.0:
+    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /acorn-jsx/5.3.2_acorn@8.8.2:

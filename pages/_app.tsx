@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import Header from '@/components/Header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Toaster } from '@/components/ui/toaster'
@@ -31,6 +32,7 @@ export default function App({
       >
         <Header />
         <Component {...pageProps} />
+        <Analytics />
         <TailwindIndicator />
         <Toaster />
         <SignInModal />
