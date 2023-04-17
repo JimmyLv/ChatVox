@@ -12,7 +12,7 @@ export default function Header() {
   const { t } = useTranslation()
 
   return (
-    <header className="supports-backdrop-blur:bg-white/60 max-w-8xl sticky top-0 z-40 mx-auto w-full flex-none bg-sky-50 py-4 shadow-sm backdrop-blur transition-colors duration-500 dark:bg-transparent md:z-50 md:mx-0">
+    <header className="supports-backdrop-blur:bg-white/60 max-w-8xl sticky top-0 z-40 mx-auto w-full flex-none bg-sky-50 py-1 md:py-4 shadow-sm backdrop-blur transition-colors duration-500 dark:bg-transparent md:z-50 md:mx-0">
       <div className="flex items-center justify-between px-3 2xl:px-8">
         <div className="flex items-center space-x-2 md:space-x-3">
           <a href="https://jimmylv.cn" target="_blank" rel="noopener noreferrer">
@@ -35,7 +35,7 @@ export default function Header() {
                 <span className="pr-0.5 text-pink-400">Chat</span>
                 <span className="text-sky-400">Vox</span>
               </span>
-              <span className="text-xl">{t('Chat With Any Video')}</span>
+              <span className="text-sm md:text-xl">{t('Chat With Any Video')}</span>
             </h2>
           </Link>
         </div>

@@ -241,7 +241,8 @@ ${mapResult(searchResults)}
         transition-colors
         rounded-md
         border border-slate-200 dark:border-slate-500 hover:border-slate-300 dark:hover:border-slate-500
-        min-w-[500px] "
+        min-w-[300px]
+        md:min-w-[500px]"
       >
         <Search width={15} />
         <span className="border border-l h-5"></span>

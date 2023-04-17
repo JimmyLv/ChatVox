@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
+import { Icons } from '@/components/icons'
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,18 +13,20 @@ import {
 export function MainNav() {
   return (
     <NavigationMenu>
-      <NavigationMenuList>
+      <NavigationMenuList className="flex md:flex-row flex-col items-start">
         <NavigationMenuItem>
           <Link href="https://b.aitodo.co" legacyBehavior passHref target="_blank">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              © AITODO.CO
+              <Icons.copyright className="mr-1 h-4 w-4" />
+              AITODO.CO
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="https://github.com/JimmyLv/ChatVox" legacyBehavior passHref target="_blank">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              ⭐️ Star on GitHub
+              <Icons.star className="mr-1 h-4 w-4" />
+              <span className="hidden md:block">Star on </span>GitHub
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

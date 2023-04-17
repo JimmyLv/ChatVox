@@ -1,6 +1,7 @@
 import { SearchDialog } from '@/components/SearchDialog'
 import TypingSlogan from '@/components/TypingSlogan'
 import { VideoForm } from '@/components/VideoForm'
+import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store'
 import styles from '@/styles/Home.module.css'
 import dynamic from 'next/dynamic'
@@ -21,7 +22,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <TypingSlogan />
-        <div className="sm:mt-30 mx-auto mt-8 w-full max-w-7xl px-4 lg:px-0">
+        <div className="sm:mt-30 mx-auto mt-8 w-full max-w-7xl md:px-4 px-0">
           <VideoForm />
         </div>
         {subtitleDocs.length > 0 && <VideoArea />}

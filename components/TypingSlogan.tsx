@@ -7,9 +7,9 @@ export default function TypingSlogan() {
   const { t } = useTranslation()
   return (
     <div>
-      <h1 className="h-[5rem] w-screen text-center text-4xl font-bold sm:w-[64rem] sm:text-7xl">
-        {t('Chat With Any')}
-        <span className="relative whitespace-nowrap	px-3 text-pink-400">
+      <h1 className="h-[5rem] w-screen justify-center text-4xl font-bold sm:w-[64rem] sm:text-7xl flex flex-col md:flex-row items-center">
+        <div>{t('Chat With Any')}</div>
+        <span className="relative w-fit whitespace-nowrap	px-3 text-pink-400">
           <SquigglyLines />
           <TypeAnimation
             sequence={[
