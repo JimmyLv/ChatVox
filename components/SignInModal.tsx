@@ -49,7 +49,7 @@ const SignInModal = () => {
           </h3>
           <p className="text-base text-sky-300">{t('Chat With Any Video')}</p>
         </div>
-        <div className="flex flex-1 flex-col justify-center bg-gray-50 p-4 md:px-10 md:py-8">
+        <div className="w-96 flex flex-1 flex-col justify-center bg-gray-50 p-4 md:px-10 md:py-8">
           <Auth
             supabaseClient={supabase}
             redirectTo={redirectURL}
