@@ -60,7 +60,7 @@ export function VideoForm() {
         <Button
           type="submit"
           className={cn(
-            'mx-2 w-30 whitespace-nowrap rounded-lg py-2.5 text-sm font-medium text-white'
+            'ml-2 md:mx-2 w-30 whitespace-nowrap rounded-lg py-2.5 text-sm font-medium text-white'
           )}
         >
           {adding ? (
