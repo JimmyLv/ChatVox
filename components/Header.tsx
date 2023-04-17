@@ -34,7 +34,7 @@ export default function Header() {
                 <span className="pr-0.5 text-pink-400">Chat</span>
                 <span className="text-sky-400">Vox</span>
               </span>
-              <span className="text-xl">{t('ChatVox')}</span>
+              <span className="text-xl">{t('Chat With Any Video')}</span>
             </h2>
           </Link>
           {/*<MainNav />*/}
