@@ -4,7 +4,13 @@
 
 ![ChatVox Cover Image](/public/og-image.png)
 
-This project takes the YouTube/Podcast link you enter or local Video/Audio file you upload on the page, then processes them to use as custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts.
+ChatVox · Chat With Any Video: This project takes the YouTube/Podcast link you enter or the local Video/Audio file (WIP) you upload on the page, then you can chat with the video, just like ChatGPT! 🤩
+
+Talking to a video is essentially talking to this person, It meant "chat with wisdom" 🤣
+
+I'm updating AI Hackathon on Twitter in real-time, This is the showcase of the whole process. https://twitter.com/Jimmy_JingLv/status/1647483720608415744?s=20
+
+The technology behind it is to process them to use as the custom context within [OpenAI Text Completion](https://platform.openai.com/docs/guides/completion) prompts and LangChain to handle the document searching and Q&A answering.
 
 ## Deploy
 

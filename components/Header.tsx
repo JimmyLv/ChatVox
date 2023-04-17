@@ -1,9 +1,10 @@
+import { MainNav } from '@/components/MainNav'
+import UserAvatar from '@/components/UserAvatar'
 import { useTranslation } from '@/hooks/useTranslation'
-import { Poppins } from 'next/font/google'
 import clsx from 'clsx'
+import { Poppins } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
-import UserAvatar from '@/components/UserAvatar'
 
 const poppins = Poppins({ weight: '800', subsets: ['latin'] })
 
@@ -11,7 +12,7 @@ export default function Header() {
   const { t } = useTranslation()
 
   return (
-    <header className="supports-backdrop-blur:bg-white/60 max-w-8xl sticky top-0 z-40 mx-auto w-full flex-none bg-sky-50 pb-1 pt-2 shadow-sm backdrop-blur transition-colors duration-500 dark:bg-transparent md:z-50 md:mx-0">
+    <header className="supports-backdrop-blur:bg-white/60 max-w-8xl sticky top-0 z-40 mx-auto w-full flex-none bg-sky-50 py-4 shadow-sm backdrop-blur transition-colors duration-500 dark:bg-transparent md:z-50 md:mx-0">
       <div className="flex items-center justify-between px-3 2xl:px-8">
         <div className="flex items-center space-x-2 md:space-x-3">
           <a href="https://jimmylv.cn" target="_blank" rel="noopener noreferrer">
@@ -37,10 +38,10 @@ export default function Header() {
               <span className="text-xl">{t('Chat With Any Video')}</span>
             </h2>
           </Link>
-          {/*<MainNav />*/}
         </div>
 
-        <div className="flex items-center space-x-2 md:space-x-3">
+        <div className="flex items-center space-x-4 md:space-x-6">
+          <MainNav />
           <UserAvatar />
         </div>
       </div>
