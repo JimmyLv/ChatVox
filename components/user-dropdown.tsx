@@ -29,16 +29,16 @@ export default function UserDropdown() {
     >
       <Popover
         content={
-          <div className="w-full rounded-md bg-white p-2 sm:w-56">
+          <div className="w-full rounded-md bg-white dark:bg-black p-2 sm:w-56">
             <Link
               href="/user/videos"
-              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75  dark:hover:bg-gray-900 hover:bg-gray-100"
             >
               <Film className="h-4 w-4" />
               <p className="text-sm">{t('History')}</p>
             </Link>
             <button
-              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 hover:bg-gray-100"
+              className="relative flex w-full items-center justify-start space-x-2 rounded-md p-2 text-left text-sm transition-all duration-75 dark:hover:bg-gray-900 hover:bg-gray-100"
               onClick={() => signOut({ redirect: false })}
             >
               <LogOut className="h-4 w-4" />
