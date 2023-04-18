@@ -64,7 +64,8 @@ function promptDataReducer(
 function mapResult(relevantResults: Document<SubtitleMetadata>[]) {
   return relevantResults
     .map(
-      ({ pageContent, metadata }) => `- [${pageContent}](${metadata.source}?t=${metadata.start})`
+      ({ pageContent, metadata }) =>
+        `- [${pageContent}](${metadata.source}&t=${Math.round(metadata.start)})`
     )
     .join('\n')
 }

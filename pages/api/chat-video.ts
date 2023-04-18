@@ -24,7 +24,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const chain = makeChain(vectorStore)
 
   try {
-    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5)
+    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5, (...args: any[]) =>
+      console.log('========args========', args)
+    )
     const response = await chain.call({
       question: sanitizedQuestion,
       chat_history: history || [],

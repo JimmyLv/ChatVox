@@ -1,11 +1,12 @@
 import { toast } from '@/hooks/use-toast'
+import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import { Document } from 'langchain/document'
 import { StateCreator } from 'zustand'
 
 export interface VideoSlice {
   adding: boolean
   videoUrl?: string
-  subtitleDocs: Document[]
+  subtitleDocs: Document<SubtitleMetadata>[]
   addVideo: (url: string) => Promise<void>
 }
 

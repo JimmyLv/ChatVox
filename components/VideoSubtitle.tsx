@@ -4,15 +4,15 @@ import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
 export function VideoSubtitle() {
-  const { videoUrl, subtitleDocs } = useAppStore()
+  const { subtitleDocs } = useAppStore()
   const searchParams = useSearchParams()
   const time = searchParams.get('t')
   const index = searchParams.get('i')
 
   const subtitle = subtitleDocs[Number(index)]
-  const { pageContent } = subtitle || {}
+  const { pageContent, metadata } = subtitle || {}
   const parsed_content = pageContent?.replace(/↓/g, '\n')
-  const embed_source = videoUrl
+  const embed_source = metadata.source
     ?.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
     .replace('https://youtu.be/', 'https://www.youtube.com/embed/')
 

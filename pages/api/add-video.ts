@@ -26,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   const existingContent = await getVideoByUrl(url)
 
-  console.log(`========subtitles for ${url}========`, existingContent)
+  console.log(`========subtitles for ${url}========`, existingContent?.length)
   if (existingContent && existingContent.length) {
     return res.json({
       success: true,

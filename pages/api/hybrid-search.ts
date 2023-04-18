@@ -25,6 +25,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const query = req.body.query || 'What stories did Jobs tell?'
 
+  console.log('========query========', query)
+
   const relevantResults = await retriever.getRelevantDocuments(query)
 
   console.log({ relevantResults })

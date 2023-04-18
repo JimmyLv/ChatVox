@@ -1,5 +1,7 @@
 import Source from '@/components/Source'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
+import { useAppStore } from '@/store'
+import { useUser } from '@supabase/auth-helpers-react'
 import clsx from 'clsx'
 import { Document } from 'langchain/document'
 import uniqBy from 'lodash.uniqby'
@@ -45,15 +47,20 @@ const convertNewLines = (text: string) =>
   ))
 
 export function ChatLine({ who = 'bot', message, sources }: Message) {
+  const { videoUrl } = useAppStore()
+  const user = useUser()
+
   if (!message) {
     return null
   }
   const formatteMessage = convertNewLines(message)
   const filteredSources = sources
-    ? uniqBy(sources, (i) => i.metadata.start).sort(
-        (a, b) => Number(a.metadata.start) - Number(b.metadata.start)
-      )
+    ? uniqBy(sources, (i) => i.metadata.start)
+        .filter((i) => i.metadata.source === videoUrl)
+        .sort((a, b) => Number(a.metadata.start) - Number(b.metadata.start))
     : []
+  const userName = user?.user_metadata.name || user?.user_metadata.full_name || user?.email
+
   return (
     <div className={who != 'bot' ? 'float-right clear-both back' : 'float-left clear-both'}>
       {/*<BalancerWrapper>*/}
@@ -63,7 +70,7 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
             <div>
               <p className="font-large text-xxl text-gray-900">
                 <a href="#" className="hover:underline">
-                  {who == 'bot' ? 'ChatVox AI' : 'You'}
+                  {who == 'bot' ? 'ChatVox AI' : userName || 'You'}
                 </a>
               </p>
               <p className={clsx('text ', who == 'bot' ? 'font-semibold font- ' : 'text-gray-400')}>
