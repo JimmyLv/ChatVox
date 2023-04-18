@@ -6,13 +6,11 @@ import React from 'react'
 export function VideoSubtitle() {
   const { subtitleDocs } = useAppStore()
   const searchParams = useSearchParams()
-  const time = searchParams.get('t')
-  const index = searchParams.get('i')
-
-  const subtitle = subtitleDocs[Number(index)]
+  const time = Number(searchParams.get('t'))
+  const subtitle = subtitleDocs.find((i) => i.metadata.start === time)
   const { pageContent, metadata } = subtitle || {}
   const parsed_content = pageContent?.replace(/↓/g, '\n')
-  const embed_source = metadata.source
+  const embed_source = metadata?.source
     ?.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/')
     .replace('https://youtu.be/', 'https://www.youtube.com/embed/')
 
@@ -20,7 +18,7 @@ export function VideoSubtitle() {
     return null
   }
 
-  const url = `${embed_source}?showinfo=0&start=${Math.round(Number(time))}`
+  const url = `${embed_source}?showinfo=0&start=${Math.round(time)}`
   return (
     <div className="flex flex-row space-x-6 mt-10 m-auto max-w-7xl px-2">
       <div className="space-y-6">

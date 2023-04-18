@@ -16,7 +16,7 @@ export default function Source({
 }) {
   return (
     <Link
-      href={`?t=${start}&i=${index}`}
+      href={`?t=${start}`}
       scroll={false}
       className="text-left pt-2 text-blue-600 hover:underline cursor-pointer"
     >

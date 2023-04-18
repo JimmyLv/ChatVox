@@ -3,14 +3,13 @@ import { reduceDocuments } from '@/lib/langchain/reduceDocuments'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
 import { getVideoByUrl } from '@/lib/supabase/video'
-import { info } from 'autoprefixer'
+import getVideoId from 'get-video-id'
 import { Document } from 'langchain/document'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
 // @ts-ignore
 import { getSubtitles } from 'youtube-captions-scraper'
-import getVideoId from 'get-video-id'
 // import ytdl from 'ytdl-core'
 
 interface YoutubeSubtitle {
