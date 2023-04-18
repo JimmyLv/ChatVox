@@ -1,5 +1,7 @@
 import Source from '@/components/Source'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
+import { cn } from '@/lib/utils'
 import { useAppStore } from '@/store'
 import { useUser } from '@supabase/auth-helpers-react'
 import clsx from 'clsx'
@@ -59,21 +61,36 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
         .filter((i) => i.metadata.source === videoUrl)
         .sort((a, b) => Number(a.metadata.start) - Number(b.metadata.start))
     : []
-  const userName = user?.user_metadata.name || user?.user_metadata.full_name || user?.email
+
+  const isBot = who === 'bot'
+
+  const { email, user_metadata } = user || {}
+  const userName = user_metadata?.name || user_metadata?.full_name || email || 'You'
+  const chatImage = isBot ? '/pure_icon_32x32@2x.png' : user_metadata?.avatar_url
+  const chatName = isBot ? 'ChatVox AI' : userName
 
   return (
-    <div className={who != 'bot' ? 'float-right clear-both back' : 'float-left clear-both'}>
+    <div className={isBot ? 'float-left clear-both' : 'float-right clear-both back'}>
       {/*<BalancerWrapper>*/}
       <div className="float-right mb-5 rounded-lg bg-white dark:text-black px-4 py-5 shadow-lg ring-1 ring-zinc-100 sm:px-6">
         <div className="flex space-x-3">
           <div className="flex-1 gap-4 flex flex-row">
             <div>
               <p className="font-large text-xxl text-gray-900">
-                <a href="#" className="hover:underline">
-                  {who == 'bot' ? 'ChatVox AI' : userName || 'You'}
+                <a
+                  href="#"
+                  className={cn('hover:underline flex items-center gap-2', {
+                    'flex-row-reverse': !isBot,
+                  })}
+                >
+                  <Avatar className="w-9 h-9">
+                    <AvatarImage src={chatImage} alt="ChatVox AI" />
+                    <AvatarFallback>{chatName}</AvatarFallback>
+                  </Avatar>
+                  <span>{chatName}</span>
                 </a>
               </p>
-              <p className={clsx('text ', who == 'bot' ? 'font-semibold font- ' : 'text-gray-400')}>
+              <p className={clsx('text ', isBot ? 'font-semibold font- ' : 'text-gray-400 mt-2')}>
                 {formatteMessage}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 mt-2">

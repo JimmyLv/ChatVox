@@ -18,6 +18,7 @@ export const AskQuestion = ({ input, setInput, sendMessage, loading }: any) => (
             setInput('')
           }
         }}
+        placeholder="Your question..."
         onChange={(e) => {
           setInput(e.target.value)
         }}
