@@ -26,7 +26,7 @@ export default function TypingSlogan() {
               t('Lecture'),
               3000,
               () => {
-                console.log('Done typing!')
+                // console.log('Done typing!')
               },
             ]}
             wrapper="span"

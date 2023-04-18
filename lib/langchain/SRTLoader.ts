@@ -25,7 +25,7 @@ export class SRTLoader extends TextLoader {
     return srtSubtitles.map((subtitle, index) => {
       const { text, startSeconds, endSeconds } = subtitle
       return {
-        pageContent: text,
+        pageContent: text?.trim().replaceAll('\n', ''),
         metadata: {
           ...metadata,
           index,

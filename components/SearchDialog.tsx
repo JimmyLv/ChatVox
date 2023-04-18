@@ -65,7 +65,9 @@ function mapResult(relevantResults: Document<SubtitleMetadata>[]) {
   return relevantResults
     .map(
       ({ pageContent, metadata }) =>
-        `- [${pageContent}](${metadata.source}&t=${Math.round(metadata.start)})`
+        `- [${pageContent.trim().replaceAll('\n', '')}](${metadata.source}&t=${Math.round(
+          metadata.start
+        )})`
     )
     .join('\n')
 }
