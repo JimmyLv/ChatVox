@@ -18,12 +18,12 @@ export type Message = {
 }
 
 // loading placeholder animation for the chat line
-export const LoadingChatLine = () => (
+export const LoadingChatLine = ({ className }: { className?: string }) => (
   <div className="flex min-w-full animate-pulse px-4 py-5 sm:px-6">
     <div className="flex flex-grow space-x-3">
       <div className="min-w-0 flex-1">
         <p className="font-large text-xxl text-gray-900 dark:text-black">
-          <a href="#" className="hover:underline">
+          <a href="#" className={`hover:underline ${className}`}>
             ChatVox AI is thinking...
           </a>
         </p>

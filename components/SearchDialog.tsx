@@ -292,7 +292,7 @@ ${mapResult(searchResults)}
                   <div className="animate-spin relative flex w-5 h-5 ml-2">
                     <Loader />
                   </div>
-                  <LoadingChatLine />
+                  <LoadingChatLine className="dark:text-white" />
                 </div>
               )}
 
