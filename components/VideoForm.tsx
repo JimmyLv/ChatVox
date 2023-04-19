@@ -53,7 +53,7 @@ export function VideoForm() {
             type="text"
             id="videoUrl"
             {...register('videoUrl')}
-            className="appearance-none rounded-md border bg-transparent mt-2 py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            className="appearance-none rounded-md border bg-transparent mt-2 py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:text-white"
             placeholder={defaultVideoUrl}
           />
         </div>
