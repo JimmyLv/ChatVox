@@ -66,7 +66,9 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
 
   const { email, user_metadata } = user || {}
   const userName = user_metadata?.name || user_metadata?.full_name || email || 'You'
-  const chatImage = isBot ? '/pure_icon_32x32@2x.png' : user_metadata?.avatar_url
+  const chatImage = isBot
+    ? '/pure_icon_32x32@2x.png'
+    : user_metadata?.avatar_url || `https://avatars.dicebear.com/api/micah/${email}.svg`
   const chatName = isBot ? 'ChatVox AI' : userName
 
   return (
