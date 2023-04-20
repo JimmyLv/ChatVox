@@ -27,7 +27,7 @@ export function VideoForm() {
   })
 
   const formValues = getValues()
-  const { videoUrl, file, audioFile } = formValues
+  const { file, videoUrl, audioFile } = formValues
 
   const onFormSubmit: SubmitHandler<VideoConfigSchema> = async (data, e) => {
     // e?.preventDefault()
@@ -36,8 +36,8 @@ export function VideoForm() {
     if (file?.name) {
       // await uploadFile(audioFile)
     } else {
-      if (videoUrl) {
-        await addVideo(videoUrl)
+      if (data.videoUrl) {
+        await addVideo(data.videoUrl)
       } else {
         await addVideo(defaultVideoUrl)
       }
@@ -48,10 +48,9 @@ export function VideoForm() {
     <form onSubmit={handleSubmit(onFormSubmit)} className="grid place-items-center p-2">
       <div className="flex w-full items-end justify-between">
         <div className="flex flex-col mx-auto w-full">
-          <label htmlFor="videoUrl">Please input youtube.com video link, and press Enter</label>
+          <label>Please input youtube.com video link, and press Enter</label>
           <input
             type="text"
-            id="videoUrl"
             {...register('videoUrl')}
             className="appearance-none rounded-md border bg-transparent mt-2 py-2 pl-2 text-sm leading-6 text-slate-900 shadow-sm ring-1 ring-slate-200 placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400 dark:text-white"
             placeholder={defaultVideoUrl}
