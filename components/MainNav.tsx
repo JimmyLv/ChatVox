@@ -23,6 +23,14 @@ export function MainNav() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <Link href="https://aitodo.canny.io/feature-requests" legacyBehavior passHref target="_blank">
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <Icons.help className="mr-1 h-4 w-4" />
+              Feedback
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="https://github.com/JimmyLv/ChatVox" legacyBehavior passHref target="_blank">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Icons.star className="mr-1 h-4 w-4" />
