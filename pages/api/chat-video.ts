@@ -1,3 +1,5 @@
+import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
+import { Document } from 'langchain/document'
 import { supabaseClient } from '@/lib/supabase/client'
 import getVideoId from 'get-video-id'
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -25,18 +27,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const chain = makeChain(vectorStore)
 
   try {
-    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5)
-    const response = await chain.call({
+    const { text, sourceDocuments } = await chain.call({
       question: sanitizedQuestion,
       chat_history: history || [],
     })
 
-    const filteredSources = sources.filter((i) => {
+    const filteredSources = sourceDocuments.filter((i: Document<SubtitleMetadata>) => {
       const { id: sourceId } = getVideoId(i.metadata.source as string)
       return videoId === sourceId
     })
-    console.log('===question & response & sources===', { question, response, filteredSources })
-    res.json({ answer: response.text, sources: filteredSources })
+    console.log('===question & response & sources===', { question, answer: text, filteredSources })
+    res.json({ answer: text, sources: filteredSources })
   } catch (error) {
     console.log('error', error)
     res.status(500).json({ error })

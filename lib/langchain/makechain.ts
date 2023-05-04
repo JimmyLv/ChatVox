@@ -57,5 +57,6 @@ export const makeChain = (
     vectorstore: vectorStore,
     combineDocumentsChain: docChain,
     questionGeneratorChain: questionGenerator,
+    returnSourceDocuments: true,
   })
 }
