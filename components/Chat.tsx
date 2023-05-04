@@ -23,6 +23,7 @@ function useVideoId() {
 
 export default function Chat({ className }: { className?: string }) {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
+  const [history, setHistory] = useState<[string, string][]>([])
   const [input, setInput] = useState('')
   const [chatSessionId, setChatSessionId] = useState(Math.random().toString(36).substring(7))
   const [loading, setLoading] = useState(false)
@@ -36,6 +37,7 @@ export default function Chat({ className }: { className?: string }) {
   const resetChatConversation = () => {
     resetChatSessionId()
     setMessages(initialMessages)
+    setHistory([])
   }
 
   const regenerateAnswer = () => {
@@ -65,7 +67,7 @@ export default function Chat({ className }: { className?: string }) {
       body: JSON.stringify({
         videoId,
         question: message,
-        history: [],
+        history,
         chat_session_id: chatSessionId,
       }),
     })
@@ -89,6 +91,7 @@ export default function Chat({ className }: { className?: string }) {
           sources: sources,
         } as Message,
       ])
+      setHistory((oldHistory) => [...oldHistory, [message, answer]])
     }
   }
 

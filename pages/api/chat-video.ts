@@ -1,3 +1,4 @@
+import { makeDocumentChain } from '@/lib/langchain/makeDocumentChain'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import { Document } from 'langchain/document'
 import { supabaseClient } from '@/lib/supabase/client'
@@ -27,6 +28,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const chain = makeChain(vectorStore)
 
   try {
+    /* const documentChain = await makeDocumentChain()
+    const relevantDocs = await vectorStore.similaritySearch(sanitizedQuestion, 5)
+    const result = await documentChain.call({
+      input_documents: relevantDocs,
+      question,
+    })
+    console.log('===result sources===', { question, answer: result, relevantDocs })
+*/
     const { text, sourceDocuments } = await chain.call({
       question: sanitizedQuestion,
       chat_history: history || [],
