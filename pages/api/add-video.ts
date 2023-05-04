@@ -23,9 +23,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!url) {
     return res.status(400).json({ message: 'No video url in the request' })
   }
-  const existingContent = await getVideoByUrl(url)
+  const { id, service } = getVideoId(url)
+  const videoUrl = `https://www.youtube.com/watch?v=${id}`
 
-  console.log(`========subtitles for ${url}========`, existingContent?.length)
+  const existingContent = await getVideoByUrl(videoUrl)
+
+  console.log(`========subtitles for ${videoUrl}========`, existingContent?.length)
   if (existingContent && existingContent.length) {
     return res.json({
       success: true,
@@ -37,7 +40,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     })
   }
 
-  const { id, service } = getVideoId(url)
   if (service !== 'youtube') {
     return res.status(400).json({ message: 'Not support' })
   }
@@ -55,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             index,
             start: Number(start),
             end: Number(start) + Number(dur),
-            source: `https://www.youtube.com/watch?v=${id}`,
+            source: videoUrl,
           },
         })
       )
