@@ -1,4 +1,5 @@
 import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
+import { makeSummaryChain } from '@/lib/langchain/makeSummaryChain'
 import { reduceDocuments } from '@/lib/langchain/reduceDocuments'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
 import { supabaseClient } from '@/lib/supabase/client'
@@ -27,15 +28,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const videoUrl = `https://www.youtube.com/watch?v=${id}`
 
   const existingContent = await getVideoByUrl(videoUrl)
-
   console.log(`========subtitles for ${videoUrl}========`, existingContent?.length)
+
+  const chain = await makeSummaryChain()
   if (existingContent && existingContent.length) {
+    const docs = existingContent.map(
+      (doc) =>
+        new Document<SubtitleMetadata>({
+          pageContent: doc.content,
+          metadata: doc.metadata,
+        })
+    )
+
+    const res = await chain.call({
+      input_documents: docs,
+    })
+    console.log('---------res==========', { res })
+
     return res.json({
       success: true,
-      subtitleDocs: existingContent.map((doc) => ({
-        pageContent: doc.content,
-        metadata: doc.metadata,
-      })),
+      subtitleDocs: docs,
+      summary: res.text,
       // videoInfo: info,
     })
   }
@@ -64,9 +77,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const docs = reduceDocuments(rawDocs)
       await vectorStore.addDocuments(docs)
 
+      const res = await chain.call({
+        input_documents: docs,
+      })
+      console.log('---------res==========', { res })
+
       return res.json({
         success: true,
         subtitleDocs: docs,
+        summary: res.text,
         // videoInfo: info,
       })
     }
