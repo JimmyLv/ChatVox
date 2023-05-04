@@ -1,7 +1,7 @@
-import { LLMChain, PromptTemplate } from 'langchain'
+import { PromptTemplate } from 'langchain/prompts'
 import { CallbackManager, ConsoleCallbackHandler } from 'langchain/callbacks'
-import { ChatVectorDBQAChain, loadQAStuffChain } from 'langchain/chains'
-import { ChatOpenAI } from 'langchain/chat_models'
+import { ChatVectorDBQAChain, LLMChain, loadQAStuffChain } from 'langchain/chains'
+import { ChatOpenAI } from 'langchain/chat_models/openai'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 
 const CONDENSE_PROMPT =
