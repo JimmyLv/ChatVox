@@ -31,10 +31,11 @@ export const makeChain = (
   vectorStore: SupabaseVectorStore,
   onTokenStream?: (token: string, verbose?: boolean) => void
 ) => {
+  const chat = new ChatOpenAI({
+    temperature: 0.2,
+  })
   const questionGenerator = new LLMChain({
-    llm: new ChatOpenAI({
-      temperature: 0.2,
-    }),
+    llm: chat,
     prompt: CONDENSE_PROMPT,
   })
 
@@ -49,6 +50,8 @@ export const makeChain = (
     }),
     { prompt: QA_PROMPT }
   )
+
+  // return ConversationalRetrievalQAChain.fromLLM(chat)
 
   return new ChatVectorDBQAChain({
     vectorstore: vectorStore,
