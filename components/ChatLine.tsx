@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { Document } from 'langchain/document'
 import uniqBy from 'lodash.uniqby'
 import Balancer from 'react-wrap-balancer'
+import getVideoId from 'get-video-id'
 
 const BalancerWrapper = (props: any) => <Balancer {...props} />
 
@@ -58,7 +59,11 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
   const formatteMessage = convertNewLines(message)
   const filteredSources = sources
     ? uniqBy(sources, (i) => i.metadata.start)
-        .filter((i) => i.metadata.source === videoUrl)
+        .filter((i) => {
+          const { id: sourceId } = getVideoId(i.metadata.source as string)
+          const { id: videoId } = getVideoId(videoUrl as string)
+          return videoId === sourceId
+        })
         .sort((a, b) => Number(a.metadata.start) - Number(b.metadata.start))
     : []
 

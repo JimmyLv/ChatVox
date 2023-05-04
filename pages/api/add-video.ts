@@ -55,7 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             index,
             start: Number(start),
             end: Number(start) + Number(dur),
-            source: url,
+            source: `https://www.youtube.com/watch?v=${id}`,
           },
         })
       )

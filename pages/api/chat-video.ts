@@ -1,11 +1,12 @@
 import { supabaseClient } from '@/lib/supabase/client'
+import getVideoId from 'get-video-id'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai'
 import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { makeChain } from '@/lib/langchain/makechain'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { question, history } = req.body
+  const { videoId, question, history } = req.body
 
   if (!question) {
     return res.status(400).json({ message: 'No question in the request' })
@@ -24,16 +25,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const chain = makeChain(vectorStore)
 
   try {
-    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5, (...args: any[]) =>
-      console.log('========args========', args)
-    )
+    const sources = await vectorStore.similaritySearch(sanitizedQuestion, 5)
     const response = await chain.call({
       question: sanitizedQuestion,
       chat_history: history || [],
     })
 
-    console.log('===question & response===', { question, response })
-    res.json({ answer: response.text, sources })
+    const filteredSources = sources.filter((i) => {
+      const { id: sourceId } = getVideoId(i.metadata.source as string)
+      return videoId === sourceId
+    })
+    console.log('===question & response & sources===', { question, response, filteredSources })
+    res.json({ answer: response.text, sources: filteredSources })
   } catch (error) {
     console.log('error', error)
     res.status(500).json({ error })

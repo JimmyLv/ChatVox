@@ -1,7 +1,9 @@
 import { Icons } from '@/components/icons'
 import { AskQuestion } from '@/components/AskQuestion'
 import { Button } from '@/components/ui/button'
+import { useAppStore } from '@/store'
 import clsx from 'clsx'
+import getVideoId from 'get-video-id'
 import React, { useState } from 'react'
 import { ChatLine, LoadingChatLine, type Message } from './ChatLine'
 
@@ -13,12 +15,19 @@ export const initialMessages: Message[] = [
   },
 ]
 
+function useVideoId() {
+  const { videoUrl } = useAppStore()
+  const videoId = getVideoId(videoUrl || '').id
+  return { videoId }
+}
+
 export default function Chat({ className }: { className?: string }) {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [input, setInput] = useState('')
   const [chatSessionId, setChatSessionId] = useState(Math.random().toString(36).substring(7))
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<String | undefined>(undefined)
+  const { videoId } = useVideoId()
 
   const resetChatSessionId = () => {
     setChatSessionId(Math.random().toString(36).substring(7))
@@ -54,6 +63,7 @@ export default function Chat({ className }: { className?: string }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        videoId,
         question: message,
         history: [],
         chat_session_id: chatSessionId,
