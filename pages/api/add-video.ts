@@ -40,15 +40,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         })
     )
 
-    const res = await chain.call({
+    const result = await chain.call({
       input_documents: docs,
     })
-    console.log('---------res==========', { res })
+    console.log('---------summary result (not cached)==========', result)
 
     return res.json({
       success: true,
       subtitleDocs: docs,
-      summary: res.text,
+      summary: result.text,
       // videoInfo: info,
     })
   }
@@ -77,15 +77,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const docs = reduceDocuments(rawDocs)
       await vectorStore.addDocuments(docs)
 
-      const res = await chain.call({
+      const result = await chain.call({
         input_documents: docs,
       })
-      console.log('---------res==========', { res })
+      console.log('---------summary result (not cached)==========', result)
 
       return res.json({
         success: true,
         subtitleDocs: docs,
-        summary: res.text,
+        summary: result.text,
         // videoInfo: info,
       })
     }

@@ -8,10 +8,12 @@ import React, { useState } from 'react'
 import { ChatLine, LoadingChatLine, type Message } from './ChatLine'
 
 // default first message to display in UI (not necessary to define the prompt)
-export const initialMessages: Message[] = [
+export const getInitialMessagesWithSummary: (summary?: string) => Message[] = (summary) => [
   {
     who: 'bot',
-    message: 'Hey! What do you want to learn from this video?',
+    message: `Hey! What do you want to learn from this video?
+    
+Summary: ${summary}`,
   },
 ]
 
@@ -22,6 +24,9 @@ function useVideoId() {
 }
 
 export default function Chat({ className }: { className?: string }) {
+  const { summary } = useAppStore()
+  const initialMessages = getInitialMessagesWithSummary(summary)
+
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [history, setHistory] = useState<[string, string][]>([])
   const [input, setInput] = useState('')

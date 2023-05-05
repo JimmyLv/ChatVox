@@ -8,6 +8,7 @@ export async function makeSummaryChain() {
     verbose: true,
     maxConcurrency: 1,
     maxRetries: 1,
+    maxTokens: 400,
   })
 
   // This convenience function creates a document chain prompted to summarize a set of documents.

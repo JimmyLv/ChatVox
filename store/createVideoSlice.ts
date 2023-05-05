@@ -6,6 +6,7 @@ import { StateCreator } from 'zustand'
 export interface VideoSlice {
   adding: boolean
   videoUrl?: string
+  summary: string
   subtitleDocs: Document<SubtitleMetadata>[]
   addVideo: (url: string) => Promise<void>
 }
@@ -13,6 +14,7 @@ export interface VideoSlice {
 export const createVideoSlice: StateCreator<VideoSlice> = (set) => ({
   adding: false,
   subtitleDocs: [],
+  summary: '',
   addVideo: async (url) => {
     set({ adding: true, videoUrl: url })
     const response = await fetch('/api/add-video', {
@@ -34,6 +36,7 @@ export const createVideoSlice: StateCreator<VideoSlice> = (set) => ({
     } else {
       set({
         subtitleDocs: json.subtitleDocs,
+        summary: json.summary,
       })
       toast({
         title: response.statusText,
