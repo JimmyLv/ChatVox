@@ -9,6 +9,7 @@ export default function Document() {
   )
   let ogimage = `/og-image.png`
   let sitename = CURRENT_DOMAIN
+  let siteurl = BASE_DOMAIN
   let title = t('ChatVox · Chat With Any Video')
 
   return (
@@ -19,6 +20,7 @@ export default function Document() {
         <meta property="og:description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:image" content={ogimage} />
+        <meta property="og:url" content={siteurl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
