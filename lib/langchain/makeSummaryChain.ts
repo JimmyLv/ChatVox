@@ -6,7 +6,7 @@ export async function makeSummaryChain() {
   const model = new OpenAIChat({
     temperature: 0.2,
     verbose: true,
-    maxConcurrency: 1,
+    maxConcurrency: 3,
     maxRetries: 1,
     maxTokens: 400,
   })

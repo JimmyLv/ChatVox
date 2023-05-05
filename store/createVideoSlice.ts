@@ -17,32 +17,42 @@ export const createVideoSlice: StateCreator<VideoSlice> = (set) => ({
   summary: '',
   addVideo: async (url) => {
     set({ adding: true, videoUrl: url })
-    const response = await fetch('/api/add-video', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ url }),
-    })
-    const json = await response.json()
+    try {
+      const response = await fetch('/api/add-video', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url }),
+      })
+      const json = await response.json()
 
-    if (!response.ok) {
-      console.error('Failed to add video: ', response)
+      if (!response.ok) {
+        console.error('Failed to add video: ', response)
+        toast({
+          variant: 'destructive',
+          title: response.statusText,
+          description: json.errorMessage || json.error,
+        })
+      } else {
+        set({
+          subtitleDocs: json.subtitleDocs,
+          summary: json.summary,
+        })
+        toast({
+          title: response.statusText,
+          description: 'Video added successfully!',
+        })
+      }
+    } catch (e: any) {
+      console.error('Failed to add video: ', e)
       toast({
         variant: 'destructive',
-        title: response.statusText,
-        description: json.errorMessage || json.error,
+        title: 'Failed to add video',
+        description: e.message,
       })
-    } else {
-      set({
-        subtitleDocs: json.subtitleDocs,
-        summary: json.summary,
-      })
-      toast({
-        title: response.statusText,
-        description: 'Video added successfully!',
-      })
+    } finally {
+      set({ adding: false })
     }
-    set({ adding: false })
   },
 })
