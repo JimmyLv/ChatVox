@@ -13,7 +13,8 @@ export const getInitialMessagesWithSummary: (summary?: string) => Message[] = (s
     who: 'bot',
     message: `Hey! What do you want to learn from this video?
     
-Summary: ${summary}`,
+### Summary(via [aitodo.co](https://aitodo.co))
+${summary}`,
   },
 ]
 

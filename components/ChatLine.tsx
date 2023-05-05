@@ -6,6 +6,8 @@ import { useUser } from '@supabase/auth-helpers-react'
 import clsx from 'clsx'
 import { Document } from 'langchain/document'
 import uniqBy from 'lodash.uniqby'
+import Markdown from 'marked-react'
+import * as React from 'react'
 import Balancer from 'react-wrap-balancer'
 
 const BalancerWrapper = (props: any) => <Balancer {...props} />
@@ -90,8 +92,13 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
                   <span>{chatName}</span>
                 </a>
               </p>
-              <p className={clsx('text ', isBot ? 'font-semibold font- ' : 'text-gray-400 mt-2')}>
-                {formatteMessage}
+              <p
+                className={clsx(
+                  'text markdown-body ',
+                  isBot ? 'font-semibold font- ' : 'text-gray-400 mt-2'
+                )}
+              >
+                <Markdown>{message}</Markdown>
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 mt-2">
                 {filteredSources.map((source_doc, index) => {
