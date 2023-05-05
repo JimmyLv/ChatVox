@@ -34,7 +34,7 @@ export function MainNav() {
           <Link href="https://github.com/JimmyLv/ChatVox" legacyBehavior passHref target="_blank">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Icons.star className="mr-1 h-4 w-4" />
-              <span className="hidden md:block">Star on </span>GitHub
+              <span className="hidden md:block mr-1">Star on</span>GitHub
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
