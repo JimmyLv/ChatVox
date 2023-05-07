@@ -35,7 +35,7 @@ specifiers:
   get-video-id: ^3.6.5
   github-slugger: ^2.0.0
   gpt3-tokenizer: ^1.1.5
-  langchain: ^0.0.56
+  langchain: ^0.0.71
   lodash.uniqby: ^4.7.0
   lucide-react: ^0.128.0
   marked-react: ^1.3.2
@@ -100,7 +100,7 @@ dependencies:
   get-video-id: 3.6.5
   github-slugger: 2.0.0
   gpt3-tokenizer: 1.1.5
-  langchain: 0.0.56_vg2gb77cp77imobbzfm4x5gymm
+  langchain: 0.0.71_vg2gb77cp77imobbzfm4x5gymm
   lodash.uniqby: 4.7.0
   lucide-react: 0.128.0_react@18.2.0
   marked-react: 1.3.2_react@18.2.0
@@ -162,8 +162,8 @@ packages:
       regenerator-runtime: 0.13.11
     dev: false
 
-  /@dqbd/tiktoken/1.0.6:
-    resolution: {integrity: sha512-umSdeZTy/SbPPKVuZKV/XKyFPmXSN145CcM3iHjBbmhlohBJg7vaDp4cPCW+xNlWL6L2U1sp7T2BD+di2sUKdA==}
+  /@dqbd/tiktoken/1.0.7:
+    resolution: {integrity: sha512-bhR5k5W+8GLzysjk8zTMVygQZsgvf7W1F0IlL4ZQ5ugjo5rCyiwGM5d8DYriXspytfu98tv59niang3/T+FoDw==}
     dev: false
 
   /@emotion/is-prop-valid/0.8.8:
@@ -1487,6 +1487,11 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       color-convert: 2.0.1
+    dev: false
+
+  /ansi-styles/5.2.0:
+    resolution: {integrity: sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==}
+    engines: {node: '>=10'}
     dev: false
 
   /anymatch/3.1.3:
@@ -3095,21 +3100,25 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /langchain/0.0.56_vg2gb77cp77imobbzfm4x5gymm:
-    resolution: {integrity: sha512-5+UCYhKwg//fm2Gb32EpKQiuNlJqt2YdKIFyZRCEyqMSmTd1Cu4QcdRMjFfl7IVwyY3xrUC7dQIMsJ6k+TsRrA==}
+  /langchain/0.0.71_vg2gb77cp77imobbzfm4x5gymm:
+    resolution: {integrity: sha512-xMaKOfNPdKn4diI5adhys6P9J/dHLq/oCtXraotbBeHvOeYkQ6Xo2ywtqQZN+OywhOUv/2Kg34QnFnKPDjn3xA==}
     engines: {node: '>=18'}
     peerDependencies:
       '@aws-sdk/client-lambda': ^3.310.0
       '@aws-sdk/client-s3': ^3.310.0
+      '@clickhouse/client': ^0.0.14
       '@getmetal/metal-sdk': '*'
       '@huggingface/inference': ^1.5.1
       '@opensearch-project/opensearch': '*'
       '@pinecone-database/pinecone': '*'
       '@supabase/supabase-js': ^2.10.0
+      '@tensorflow-models/universal-sentence-encoder': '*'
+      '@tensorflow/tfjs-converter': '*'
+      '@tensorflow/tfjs-core': '*'
       '@zilliz/milvus2-sdk-node': ^2.2.0
-      axios: ^0.26.0
+      axios: '*'
       cheerio: ^1.0.0-rc.12
-      chromadb: ^1.3.0
+      chromadb: ^1.4.0
       cohere-ai: ^5.0.2
       d3-dsv: ^2.0.0
       epub2: ^3.0.1
@@ -3117,7 +3126,7 @@ packages:
       html-to-text: ^9.0.5
       mammoth: '*'
       mongodb: ^5.2.0
-      pdfjs-dist: ^3.4.120
+      pdf-parse: 1.1.1
       playwright: ^1.32.1
       puppeteer: ^19.7.2
       redis: ^4.6.4
@@ -3130,6 +3139,8 @@ packages:
         optional: true
       '@aws-sdk/client-s3':
         optional: true
+      '@clickhouse/client':
+        optional: true
       '@getmetal/metal-sdk':
         optional: true
       '@huggingface/inference':
@@ -3139,6 +3150,12 @@ packages:
       '@pinecone-database/pinecone':
         optional: true
       '@supabase/supabase-js':
+        optional: true
+      '@tensorflow-models/universal-sentence-encoder':
+        optional: true
+      '@tensorflow/tfjs-converter':
+        optional: true
+      '@tensorflow/tfjs-core':
         optional: true
       '@zilliz/milvus2-sdk-node':
         optional: true
@@ -3162,7 +3179,7 @@ packages:
         optional: true
       mongodb:
         optional: true
-      pdfjs-dist:
+      pdf-parse:
         optional: true
       playwright:
         optional: true
@@ -3180,8 +3197,9 @@ packages:
         optional: true
     dependencies:
       '@anthropic-ai/sdk': 0.4.3
-      '@dqbd/tiktoken': 1.0.6
+      '@dqbd/tiktoken': 1.0.7
       '@supabase/supabase-js': 2.13.0
+      ansi-styles: 5.2.0
       binary-extensions: 2.2.0
       browser-or-node: 2.1.1
       expr-eval: 2.0.2
@@ -3196,6 +3214,7 @@ packages:
       uuid: 9.0.0
       yaml: 2.2.1
       zod: 3.21.4
+      zod-to-json-schema: 3.21.0_zod@3.21.4
     transitivePeerDependencies:
       - debug
       - encoding
@@ -5082,6 +5101,14 @@ packages:
       m3u8stream: 0.8.6
       miniget: 4.2.2
       sax: 1.2.4
+    dev: false
+
+  /zod-to-json-schema/3.21.0_zod@3.21.4:
+    resolution: {integrity: sha512-+KyFCzqKwE6CxMSZxEUBaGmdXzB09BoFebO+xef/ISE4cTfReQlyThYbS8aqd3uWkdt9fz5BGHsY0CbY+Ra9oA==}
+    peerDependencies:
+      zod: ^3.21.4
+    dependencies:
+      zod: 3.21.4
     dev: false
 
   /zod/3.21.4:
