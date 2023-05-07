@@ -27,6 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { id, service } = getVideoId(url)
   const videoUrl = `https://www.youtube.com/watch?v=${id}`
 
+  // await extractDataFromSrt('public/assets/Berkshire\'s 2023 annual shareholder meeting： Watch the full morning session [kfzp_IgA6YQ].srt')
   const existingContent = await getVideoByUrl(videoUrl)
   console.log(`========subtitles for ${videoUrl}========`, existingContent?.length)
 
