@@ -1,12 +1,17 @@
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
+import { encoding_for_model } from '@dqbd/tiktoken'
 import { Document } from 'langchain/document'
 
-export function reduceDocuments(subtitleDocs: Document<SubtitleMetadata>[] = []) {
-  // console.log('========subtitleDocs========', subtitleDocs)
-  // about 2-minute subtitle
-  const contextWindowSize = 20
-  const contextWindowOverlap = 3
+const enc = encoding_for_model('gpt-3.5-turbo')
 
+export function reduceDocuments(
+  subtitleDocs: Document<SubtitleMetadata>[] = [],
+  contextWindowSize = 20,
+  contextWindowOverlap = 3
+) {
+  // about 2-minute subtitle
+
+  console.log(`========raw subtitleDocs ${subtitleDocs.length}========`)
   const documents = []
   for (let i = 0; i < subtitleDocs.length; i += contextWindowSize - contextWindowOverlap) {
     const subtitlesWindow = subtitleDocs.slice(i, i + contextWindowSize)
@@ -24,6 +29,11 @@ export function reduceDocuments(subtitleDocs: Document<SubtitleMetadata>[] = [])
     const doc = new Document<SubtitleMetadata>({ pageContent, metadata })
     documents.push(doc)
   }
+
+  console.log(
+    `========reducedDocuments ${documents.length}========`,
+    documents.map(({ pageContent }) => enc.encode(pageContent).length)
+  )
 
   return documents
 }

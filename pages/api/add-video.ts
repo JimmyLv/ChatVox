@@ -27,7 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { id, service } = getVideoId(url)
   const videoUrl = `https://www.youtube.com/watch?v=${id}`
 
-  // await extractDataFromSrt('public/assets/Berkshire\'s 2023 annual shareholder meeting： Watch the full morning session [kfzp_IgA6YQ].srt')
   const existingContent = await getVideoByUrl(videoUrl)
   console.log(`========subtitles for ${videoUrl}========`, existingContent?.length)
 
@@ -92,9 +91,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     // TODO: add doc for different video, use whisper to generate subtitle
-    const docs = await extractDataFromSrt(
+    const rawDocs = await extractDataFromSrt(
       "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
     )
+    const docs = reduceDocuments(rawDocs)
     // console.log('========docs========', docs)
     // await vectorStore.addDocuments(docs)
 

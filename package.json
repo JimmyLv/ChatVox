@@ -25,6 +25,7 @@
     "sqlKeywordCase": "lower"
   },
   "dependencies": {
+    "@dqbd/tiktoken": "^1.0.7",
     "@hookform/resolvers": "^3.1.0",
     "@radix-ui/react-avatar": "^1.0.2",
     "@radix-ui/react-dialog": "^1.0.3",
