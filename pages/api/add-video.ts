@@ -45,7 +45,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // TODO: should fetch cached summary directly
     const summaryResult = await summaryChain.call({
-      input_documents: reduceDocuments(cachedDocs, 100, 5),
+      input_documents: reduceDocuments(cachedDocs, 5, 0),
     })
     console.log('---------summary result (not cached)==========', summaryResult)
 
