@@ -5,18 +5,24 @@ import { useAppStore } from '@/store'
 import clsx from 'clsx'
 import getVideoId from 'get-video-id'
 import React, { useState } from 'react'
-import { ChatLine, LoadingChatLine, type Message } from './ChatLine'
+import { ChatLine, LoadingChatLine, type Message, Who } from './ChatLine'
 
 // default first message to display in UI (not necessary to define the prompt)
-export const getInitialMessagesWithSummary: (summary?: string) => Message[] = (summary) => [
-  {
-    who: 'bot',
-    message: `Hey! What do you want to learn from this video?
+export const getInitialMessagesWithSummary: (summary: string) => {
+  messages: Message[]
+  history: [string, string][]
+} = (summary) => {
+  const messages = [
+    {
+      who: Who.bot,
+      message: `Hey! What do you want to learn from this video?
     
 ### Summary(via [aitodo.co](https://aitodo.co))
 ${summary}`,
-  },
-]
+    },
+  ]
+  return { messages, history: [[`what's the summary of this video?`, summary]] }
+}
 
 function useVideoId() {
   const { videoUrl } = useAppStore()
@@ -26,10 +32,11 @@ function useVideoId() {
 
 export default function Chat({ className }: { className?: string }) {
   const { summary } = useAppStore()
-  const initialMessages = getInitialMessagesWithSummary(summary)
+  const { messages: initialMessages, history: initialHistory } =
+    getInitialMessagesWithSummary(summary)
 
   const [messages, setMessages] = useState<Message[]>(initialMessages)
-  const [history, setHistory] = useState<[string, string][]>([])
+  const [history, setHistory] = useState<[string, string][]>(initialHistory)
   const [input, setInput] = useState('')
   const [chatSessionId, setChatSessionId] = useState(Math.random().toString(36).substring(7))
   const [loading, setLoading] = useState(false)
@@ -49,7 +56,7 @@ export default function Chat({ className }: { className?: string }) {
   const regenerateAnswer = () => {
     let { who: who_first } = messages[messages.length - 1]
     let offset = 0
-    if (who_first === 'bot') {
+    if (who_first === Who.bot) {
       offset = 1
     }
     const { message, who } = messages[messages.length - 1 - offset]
@@ -59,10 +66,7 @@ export default function Chat({ className }: { className?: string }) {
   const sendMessage = async (message: string, message_history?: Message[]) => {
     setLoading(true)
     setError(undefined)
-    const newMessages = [
-      ...(message_history || messages),
-      { message: message, who: 'user' } as Message,
-    ]
+    const newMessages = [...(message_history || messages), { message: message, who: Who.user }]
     setMessages(newMessages)
 
     const response = await fetch('/api/chat-video', {
@@ -93,7 +97,7 @@ export default function Chat({ className }: { className?: string }) {
         ...oldMessages,
         {
           message: answer.trim(),
-          who: 'bot',
+          who: Who.bot,
           sources: sources,
         } as Message,
       ])

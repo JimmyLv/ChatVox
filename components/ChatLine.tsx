@@ -12,8 +12,12 @@ import Balancer from 'react-wrap-balancer'
 
 const BalancerWrapper = (props: any) => <Balancer {...props} />
 
+export enum Who {
+  bot = 'bot',
+  user = 'user',
+}
 export type Message = {
-  who: 'bot' | 'user' | undefined
+  who: Who
   message?: string
   sources?: Document<SubtitleMetadata>[]
 }
@@ -49,7 +53,7 @@ const convertNewLines = (text: string) =>
     </span>
   ))
 
-export function ChatLine({ who = 'bot', message, sources }: Message) {
+export function ChatLine({ who = Who.bot, message, sources }: Message) {
   const user = useUser()
 
   if (!message) {
@@ -62,7 +66,7 @@ export function ChatLine({ who = 'bot', message, sources }: Message) {
       )
     : []
 
-  const isBot = who === 'bot'
+  const isBot = who === Who.bot
 
   const { email, user_metadata } = user || {}
   const userName = user_metadata?.name || user_metadata?.full_name || email || 'You'
