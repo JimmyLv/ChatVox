@@ -1,4 +1,3 @@
-import { extractDataFromSrt } from '@/lib/langchain/extractSrt'
 import { makeSummaryChain } from '@/lib/langchain/makeSummaryChain'
 import { reduceDocuments } from '@/lib/langchain/reduceDocuments'
 import { SubtitleMetadata } from '@/lib/langchain/SRTLoader'
@@ -11,6 +10,7 @@ import { SupabaseVectorStore } from 'langchain/vectorstores/supabase'
 import { NextApiRequest, NextApiResponse } from 'next'
 // @ts-ignore
 import { getSubtitles } from 'youtube-captions-scraper'
+
 // import ytdl from 'ytdl-core'
 
 interface YoutubeSubtitle {
@@ -25,14 +25,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'No video url in the request' })
   }
   const { id, service } = getVideoId(url)
+  if (service !== 'youtube') {
+    return res.status(400).json({ message: 'Not support' })
+  }
+
   const videoUrl = `https://www.youtube.com/watch?v=${id}`
-
   const existingContent = await getVideoByUrl(videoUrl)
-  console.log(`========subtitles for ${videoUrl}========`, existingContent?.length)
+  console.log(`========get cached subtitles for ${videoUrl}========`, existingContent?.length)
 
-  const chain = await makeSummaryChain()
+  const summaryChain = await makeSummaryChain()
   if (existingContent && existingContent.length) {
-    const docs = existingContent.map(
+    const cachedDocs = existingContent.map(
       (doc) =>
         new Document<SubtitleMetadata>({
           pageContent: doc.content,
@@ -40,29 +43,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         })
     )
 
-    const result = await chain.call({
-      input_documents: docs,
+    // TODO: should fetch cached summary directly
+    const summaryResult = await summaryChain.call({
+      input_documents: reduceDocuments(cachedDocs, 100, 5),
     })
-    console.log('---------summary result (not cached)==========', result)
+    console.log('---------summary result (not cached)==========', summaryResult)
 
     return res.json({
       success: true,
-      subtitleDocs: docs,
-      summary: result.text,
+      subtitleDocs: cachedDocs,
+      summary: summaryResult.text,
       // videoInfo: info,
     })
   }
 
-  if (service !== 'youtube') {
-    return res.status(400).json({ message: 'Not support' })
-  }
-
   try {
     const subtitles: YoutubeSubtitle[] = await getSubtitles({ videoID: id })
-    const embeddings = new OpenAIEmbeddings()
-    const vectorStore = new SupabaseVectorStore(embeddings, { client: supabaseClient })
 
     if (subtitles) {
+      // 1. prepare subtitle docs
       const rawDocs: Document<SubtitleMetadata>[] = subtitles.map(
         ({ text, dur, start }, index) => ({
           pageContent: text,
@@ -74,34 +73,30 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           },
         })
       )
+
+      // 2. generate summary
+      const summaryResult = await summaryChain.call({
+        input_documents: reduceDocuments(rawDocs, 100, 5),
+      })
+      console.log('---------summary result (not cached)==========', summaryResult)
+
+      // 3. store embedding vector to supabase
+      const vectorStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
+        client: supabaseClient,
+      })
       const docs = reduceDocuments(rawDocs)
       await vectorStore.addDocuments(docs)
 
-      const result = await chain.call({
-        input_documents: docs,
-      })
-      console.log('---------summary result (not cached)==========', result)
-
+      // 4. return result to frontend
       return res.json({
         success: true,
         subtitleDocs: docs,
-        summary: result.text,
+        summary: summaryResult.text,
         // videoInfo: info,
       })
     }
 
     // TODO: add doc for different video, use whisper to generate subtitle
-    const rawDocs = await extractDataFromSrt(
-      "public/assets/Steve Jobs' 2005 Stanford Commencement Address (with intro by President John Hennessy) - English (auto-generated).srt"
-    )
-    const docs = reduceDocuments(rawDocs)
-    // console.log('========docs========', docs)
-    // await vectorStore.addDocuments(docs)
-
-    return res.json({
-      success: true,
-      subtitleDocs: docs,
-    })
   } catch (error: any) {
     console.error(error)
     // https://www.youtube.com/watch?v=0e9S_Gm7Slc
