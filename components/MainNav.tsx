@@ -15,7 +15,7 @@ export function MainNav() {
     <NavigationMenu>
       <NavigationMenuList className="flex md:flex-row flex-col items-start">
         <NavigationMenuItem>
-          <Link href="https://b.aitodo.co" legacyBehavior passHref target="_blank">
+          <Link href="https://aitodo.co" legacyBehavior passHref target="_blank">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <Icons.copyright className="mr-1 h-4 w-4" />
               AITODO.CO
